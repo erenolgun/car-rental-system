@@ -6,7 +6,6 @@
 package classes;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -18,20 +17,17 @@ public class SystemClass {
     public static ArrayList<Car> cars = new ArrayList<>();
     
     
+    
     // boolean ya da void kontrolünü yap 
     public static boolean addPerson(Person p, int licenceYear, int licenceMonth, int licenceDay, int birthdayYear, int birthdayMonth, int birthdayDay) {
-        //Customer c ve tarihler gui tarafından eklenip adderson metoduna aktarılacak.
-        
+        //Customer c ve tarihler gui tarafından eklenip adderson metoduna aktarılacak.        
         GregorianCalendar licenceDate = new GregorianCalendar(licenceYear, licenceMonth, licenceDay);
         GregorianCalendar birthdayDate = new GregorianCalendar(birthdayYear, birthdayMonth, birthdayDay);
         GregorianCalendar currentDate = new GregorianCalendar();
         
         boolean isAdded = false;
-        
-        if((currentDate.get(Calendar.YEAR) - licenceDate.get(Calendar.YEAR) >= 2) && (currentDate.get(Calendar.YEAR) - birthdayDate.get(Calendar.YEAR) >= 21)) {
-            isAdded = customers.add(p);
-        }
-        
+        isAdded = customers.add(p);
+
         return isAdded;
     }
     
@@ -41,4 +37,13 @@ public class SystemClass {
         return isRemoved;
     }
     
+    public static int searchPerson(String id){
+        int position = 0;
+          for(int i=0; i<customers.size(); i++){
+              if(customers.get(i).getIdNumber().equals(id)){
+                  position = i;
+              }
+          }
+          return position;
+      } 
 }

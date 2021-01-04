@@ -7,6 +7,8 @@
 package GUI;
 
 import GUI.RentingCar.RentingInformation;
+import classes.Person;
+import classes.SystemClass;
 
 
 /**
@@ -180,6 +182,17 @@ public class Login extends javax.swing.JFrame {
             public void run() {
                 Login Login = new Login();
                 Login.setVisible(true);
+                
+                Person person1 = new Person("Eren", "Olgun", "T.C.", "123456789", "11/11/1999", "11/11/1999", "123456", "eren@hotmail.com");
+                Person person2 = new Person("Kağan", "Bildirici", "T.C", "12456", "11/11/1999", "11/11/1999", "02154", "kağan@gmail.com");
+                
+                SystemClass.customers.add(person1);
+                SystemClass.customers.add(person2);
+                
+                for (Person customer : SystemClass.customers) {
+                    System.out.println(customer);
+                }
+                
             }
         });
     }

@@ -8,9 +8,15 @@ package GUI.Customers;
 import GUI.Cars.DisplayCar;
 import GUI.Login;
 import GUI.RentingCar.RentingInformation;
+import classes.Person;
+import classes.SystemClass;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import GUI.Customers.DisplayCustomer;
 
 /**
  *
@@ -48,7 +54,6 @@ public class AddCustomer extends javax.swing.JFrame {
         jLabelSurname = new javax.swing.JLabel();
         jTextFieldSurname = new javax.swing.JTextField();
         jLabelNationality = new javax.swing.JLabel();
-        jTextFieldNationality = new javax.swing.JTextField();
         jLabelIDNumber = new javax.swing.JLabel();
         jTextFieldIDNumber = new javax.swing.JTextField();
         jLabelBirthdayDate = new javax.swing.JLabel();
@@ -61,6 +66,8 @@ public class AddCustomer extends javax.swing.JFrame {
         jTextFieldEmail = new javax.swing.JTextField();
         jButtonAddCustomer = new javax.swing.JButton();
         jLabelPassport = new javax.swing.JLabel();
+        jRadioButtonTC = new javax.swing.JRadioButton();
+        jRadioButtonOther = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,57 +153,71 @@ public class AddCustomer extends javax.swing.JFrame {
 jLabelNationality.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelNationality.setText("Nationality");
 
-jTextFieldNationality.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldNationality.setBorder(BorderFactory.createCompoundBorder(border,
+jLabelIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+jLabelIDNumber.setText("ID Number*");
+
+jTextFieldIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+jTextFieldIDNumber.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-    jLabelIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-    jLabelIDNumber.setText("ID Number*");
+    jLabelBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+    jLabelBirthdayDate.setText("Birthday Date (DD/MM/YYYY)");
 
-    jTextFieldIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldIDNumber.setBorder(BorderFactory.createCompoundBorder(border,
+    jTextFieldBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+    jTextFieldBirthdayDate.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-jLabelBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-jLabelBirthdayDate.setText("Birthday Date");
+jLabelDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+jLabelDriversLicenceDate.setText("Licence Date (DD/MM/YYYY)");
 
-jTextFieldBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldBirthdayDate.setBorder(BorderFactory.createCompoundBorder(border,
+jTextFieldDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+jTextFieldDriversLicenceDate.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-    jLabelDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-    jLabelDriversLicenceDate.setText("Driver's Licence Date");
+    jLabelPhone.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+    jLabelPhone.setText("Phone");
 
-    jTextFieldDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldDriversLicenceDate.setBorder(BorderFactory.createCompoundBorder(border,
+    jTextFieldPhone.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+    jTextFieldPhone.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-jLabelPhone.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-jLabelPhone.setText("Phone");
+jLabelEmail.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+jLabelEmail.setText("Email Address");
 
-jTextFieldPhone.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldPhone.setBorder(BorderFactory.createCompoundBorder(border,
+jTextFieldEmail.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-    jLabelEmail.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-    jLabelEmail.setText("Email Address");
-
-    jTextFieldEmail.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
-        BorderFactory.createEmptyBorder(0, 10, 0, 0)));
-
-jButtonAddCustomer.setBackground(new java.awt.Color(0, 0, 0));
-jButtonAddCustomer.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-jButtonAddCustomer.setForeground(new java.awt.Color(255, 255, 255));
-jButtonAddCustomer.setText("ADD CUSTOMER");
-jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
-    public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButtonAddCustomerActionPerformed(evt);
-    }
+    jButtonAddCustomer.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonAddCustomer.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+    jButtonAddCustomer.setForeground(new java.awt.Color(255, 255, 255));
+    jButtonAddCustomer.setText("ADD CUSTOMER");
+    jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonAddCustomerActionPerformed(evt);
+        }
     });
 
     jLabelPassport.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
     jLabelPassport.setText("*If the customer is not a citizen of the Republic of Turkey, enter customer's passport number.");
+
+    jRadioButtonTC.setBackground(new java.awt.Color(255, 255, 255));
+    jRadioButtonTC.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+    jRadioButtonTC.setText("T.C");
+    jRadioButtonTC.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jRadioButtonTCActionPerformed(evt);
+        }
+    });
+
+    jRadioButtonOther.setBackground(new java.awt.Color(255, 255, 255));
+    jRadioButtonOther.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+    jRadioButtonOther.setText("Other");
+    jRadioButtonOther.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jRadioButtonOtherActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout jPanelNewCustomerLayout = new javax.swing.GroupLayout(jPanelNewCustomer);
     jPanelNewCustomer.setLayout(jPanelNewCustomerLayout);
@@ -220,13 +241,15 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
                                 .addComponent(jLabelEmail)
                                 .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNewCustomerLayout.createSequentialGroup()
-                            .addGroup(jPanelNewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanelNewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelBirthdayDate)
-                                    .addComponent(jTextFieldBirthdayDate, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldNationality)
-                                    .addComponent(jTextFieldName))
-                                .addComponent(jLabelNationality))
+                            .addGroup(jPanelNewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelBirthdayDate)
+                                .addComponent(jTextFieldBirthdayDate, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                .addComponent(jTextFieldName)
+                                .addComponent(jLabelNationality)
+                                .addGroup(jPanelNewCustomerLayout.createSequentialGroup()
+                                    .addComponent(jRadioButtonTC)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jRadioButtonOther, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelNewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabelIDNumber)
@@ -266,8 +289,9 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
                 .addComponent(jLabelIDNumber))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanelNewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jTextFieldNationality, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jTextFieldIDNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextFieldIDNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jRadioButtonTC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jRadioButtonOther, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(jPanelNewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelNewCustomerLayout.createSequentialGroup()
@@ -292,7 +316,7 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jButtonAddCustomer)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jLabelPassport, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(17, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     jLabelPassport.getAccessibleContext().setAccessibleDescription("deneme");
@@ -336,7 +360,7 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jLabelNewCustomer)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jPanelNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(66, 66, 66))
+            .addGap(21, 21, 21))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -355,6 +379,56 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomerActionPerformed
+        String name = jTextFieldName.getText();
+        String surname = jTextFieldSurname.getText();
+        if(jRadioButtonTC.isSelected()){
+            String nationality = "T.C.";
+        }
+        if(jRadioButtonOther.isSelected()){
+            String nationality = "Other";
+        }
+        String idNumber = jTextFieldIDNumber.getText();
+        String phone = jTextFieldPhone.getText();
+        String email = jTextFieldEmail.getText();
+        String birthdayDateConst = jTextFieldBirthdayDate.getText();
+        String licenceDateConst = jTextFieldDriversLicenceDate.getText();
+        
+        Person person = new Person(name, surname, email, idNumber, birthdayDateConst, licenceDateConst, phone, email);
+        
+        String[] birthdayDate = jTextFieldBirthdayDate.getText().split("/");       
+        if(birthdayDate.length != 3){
+            //hata kodu
+        }
+        
+        int birthdayDay = Integer.parseInt(birthdayDate[0]);
+        int birthdayMonth = Integer.parseInt(birthdayDate[1]);
+        int birthdayYear = Integer.parseInt(birthdayDate[2]);
+        
+        String[] licenseDate = jTextFieldBirthdayDate.getText().split("/");
+        if(licenseDate.length != 3){
+            //hata kodu
+        }
+        int licenceDay = Integer.parseInt(licenseDate[0]);
+        int licenceMonth = Integer.parseInt(licenseDate[1]);
+        int licenceYear = Integer.parseInt(licenseDate[2]);
+        
+        GregorianCalendar currentDate = new GregorianCalendar();
+        
+        if((currentDate.get(Calendar.YEAR) - licenceYear < 2) && (currentDate.get(Calendar.YEAR) - birthdayYear < 21)){
+            //İKİ HATAYI AYNI ANDA EKRANA YAZ
+        } else if(currentDate.get(Calendar.YEAR) - birthdayYear < 21){
+            //KULLANICI ARABA KİRALAMAK İÇİN YETERİNCE BÜYÜK DEĞİL HATASI
+        } else if((currentDate.get(Calendar.YEAR) - licenceYear < 2)){
+            //KULLANICI EHLİYETİ 2 SENEDEN AZ HATASI VERİLECEK
+        } else {
+            if(SystemClass.addPerson(person, licenceYear, licenceMonth, licenceDay, birthdayYear, birthdayMonth, birthdayDay)){
+                //KULLANICI SİSTEME EKLENDİ BİLGİSİ VERİLECEK
+                
+            } else {
+                // KULLANICI SİSTEME EKLENEMEDİ
+            }
+        }
+
         DisplayCustomer displayCustomer = new DisplayCustomer();
         displayCustomer.setVisible(true);
         this.dispose();
@@ -377,6 +451,22 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
         RentingInformation.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonRentCarActionPerformed
+
+    private void jRadioButtonTCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTCActionPerformed
+        if(jRadioButtonTC.isSelected()){
+            jRadioButtonOther.setEnabled(false);
+        } else {
+            jRadioButtonOther.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButtonTCActionPerformed
+
+    private void jRadioButtonOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonOtherActionPerformed
+        if(jRadioButtonOther.isSelected()){
+            jRadioButtonTC.setEnabled(false);
+        } else {
+            jRadioButtonTC.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButtonOtherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -433,12 +523,13 @@ jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelImportant;
     private javax.swing.JPanel jPanelNewCustomer;
+    private javax.swing.JRadioButton jRadioButtonOther;
+    private javax.swing.JRadioButton jRadioButtonTC;
     private javax.swing.JTextField jTextFieldBirthdayDate;
     private javax.swing.JTextField jTextFieldDriversLicenceDate;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldIDNumber;
     private javax.swing.JTextField jTextFieldName;
-    private javax.swing.JTextField jTextFieldNationality;
     private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JTextField jTextFieldSurname;
     // End of variables declaration//GEN-END:variables

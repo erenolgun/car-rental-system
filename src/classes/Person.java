@@ -9,21 +9,28 @@ package classes;
  *
  * @author ereno
  */
-public abstract class Person {
+public class Person {
     protected String name;
     protected String surname;
     protected String nationality;
-    public static int idNumber;
-    protected int phone;
+    protected String idNumber;
+    protected String birthdayDate;
+    protected String licenceDate;
+    protected String phone;
     protected String mail;
 
-    public Person(String name, String surname, String nationality, int phone, String mail) {
+    public Person(String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) {
         this.name = name;
         this.surname = surname;
         this.nationality = nationality;
+        this.idNumber = idNumber;
+        this.birthdayDate = birthdayDate;
+        this.licenceDate = licenceDate;
         this.phone = phone;
         this.mail = mail;
     }
+
+
 
     public String getName() {
         return name;
@@ -37,7 +44,19 @@ public abstract class Person {
         return nationality;
     }
 
-    public int getPhone() {
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public String getBirthdayDate() {
+        return birthdayDate;
+    }
+
+    public String getLicenceDate() {
+        return licenceDate;
+    }
+
+    public String getPhone() {
         return phone;
     }
 
@@ -58,7 +77,20 @@ public abstract class Person {
         this.nationality = nationality;
     }
 
-    public void setPhone(int phone) {
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public void setBirthdayDate(String birthdayDate) {
+        this.birthdayDate = birthdayDate;
+    }
+
+    public void setLicenceDate(String licenceDate) {
+        this.licenceDate = licenceDate;
+    }
+    
+
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -66,10 +98,11 @@ public abstract class Person {
         this.mail = mail;
     }
 
-
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", surname=" + surname + ", nationality=" + nationality + ", phone=" + phone + ", mail=" + mail + '}';
+        return "Person{" + "name=" + name + ", surname=" + surname + ", nationality=" + nationality + ", idNumber=" + idNumber + ", birthdayDate=" + birthdayDate + ", licenceDate=" + licenceDate + ", phone=" + phone + ", mail=" + mail + '}';
     }
+
+
 }
 
