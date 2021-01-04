@@ -6,7 +6,8 @@
 
 package GUI;
 
-import GUI.Customers.AddCustomer;
+import GUI.RentingCar.RentingInformation;
+
 
 /**
  *
@@ -57,11 +58,11 @@ public class Login extends javax.swing.JFrame {
         jTextFieldUsername.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldUsername.setMargin(new java.awt.Insets(2, 50, 2, 2));
 
-        jLabelUsername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelUsername.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
 
-        jLabelPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Password");
 
@@ -111,7 +112,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogin)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 580, 320));
@@ -142,8 +143,8 @@ public class Login extends javax.swing.JFrame {
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         
         //BAŞKA FRAME AÇIP, EKRANDA OLAN FRAME'İ KAPAMA
-        AddCustomer AddCustomer = new AddCustomer();
-        AddCustomer.setVisible(true);
+        RentingInformation RentingInformation = new RentingInformation();
+        RentingInformation.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
