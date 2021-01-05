@@ -138,7 +138,6 @@ public class AddCustomer extends javax.swing.JFrame {
         jLabelName.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
         jLabelName.setText("Name");
 
-        jTextFieldName.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);
         jTextFieldName.setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(0, 10, 0, 0)));
@@ -146,7 +145,6 @@ public class AddCustomer extends javax.swing.JFrame {
     jLabelSurname.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelSurname.setText("Surname");
 
-    jTextFieldSurname.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldSurname.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
@@ -156,35 +154,30 @@ jLabelNationality.setText("Nationality");
 jLabelIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelIDNumber.setText("ID Number*");
 
-jTextFieldIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldIDNumber.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelBirthdayDate.setText("Birthday Date (DD/MM/YYYY)");
 
-    jTextFieldBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldBirthdayDate.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelDriversLicenceDate.setText("Licence Date (DD/MM/YYYY)");
 
-jTextFieldDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldDriversLicenceDate.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelPhone.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelPhone.setText("Phone");
 
-    jTextFieldPhone.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldPhone.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelEmail.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelEmail.setText("Email Address");
 
-jTextFieldEmail.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 

@@ -135,8 +135,6 @@ public class AddCar extends javax.swing.JFrame {
         jLabelCarID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
         jLabelCarID.setText("Car ID");
 
-        jTextFieldCarID.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jTextFieldCarID.setText("jTextField1");
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);
         jTextFieldCarID.setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(0, 10, 0, 0)));
@@ -144,56 +142,42 @@ public class AddCar extends javax.swing.JFrame {
     jLabelBrand.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelBrand.setText("Brand");
 
-    jTextFieldBrand.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldBrand.setText("jTextField1");
     jTextFieldBrand.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelModel.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelModel.setText("Model");
 
-jTextFieldModel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldModel.setText("jTextField1");
 jTextFieldModel.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelFuelType.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelFuelType.setText("Fuel Type");
 
-    jTextFieldFuelType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldFuelType.setText("jTextField1");
     jTextFieldFuelType.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelGearType.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelGearType.setText("Gear Type");
 
-jTextFieldGearType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldGearType.setText("jTextField1");
 jTextFieldGearType.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelCarType.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelCarType.setText("Car Type");
 
-    jTextFieldCarType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldCarType.setText("jTextField1");
     jTextFieldCarType.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelModelYear.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelModelYear.setText("Model Year");
 
-jTextFieldModelYear.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldModelYear.setText("jTextField1");
 jTextFieldModelYear.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelPrice.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelPrice.setText("Price");
 
-    jTextFieldPrice.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldPrice.setText("jTextField1");
     jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 

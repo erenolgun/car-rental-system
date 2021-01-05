@@ -341,10 +341,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCarID">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1" postCode="Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);"/>
+                <Property name="text" postCode="Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -360,10 +357,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldBrand">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -379,10 +372,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldModel">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -398,10 +387,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldFuelType">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -417,10 +402,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldGearType">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -436,10 +417,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCarType">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -455,10 +432,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldModelYear">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
@@ -474,10 +447,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrice">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>

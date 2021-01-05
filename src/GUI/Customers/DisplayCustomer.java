@@ -144,7 +144,7 @@ public class DisplayCustomer extends javax.swing.JFrame {
         jLabelSearchByID.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jLabelSearchByID.setText("Search by ID:");
 
-        jComboBoxID.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
+        jComboBoxID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBoxID.setBorder(null);
         jComboBoxID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +155,6 @@ public class DisplayCustomer extends javax.swing.JFrame {
         jLabelName.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
         jLabelName.setText("Name");
 
-        jTextFieldName.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);
         jTextFieldName.setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(0, 10, 0, 0)));
@@ -163,49 +162,42 @@ public class DisplayCustomer extends javax.swing.JFrame {
     jLabelSurname.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelSurname.setText("Surname");
 
-    jTextFieldSurname.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldSurname.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelNationality.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelNationality.setText("Nationality");
 
-jTextFieldNationality.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldNationality.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelIDNumber.setText("ID Number*");
 
-    jTextFieldIDNumber.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldIDNumber.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelBirthdayDate.setText("Birthday Date");
 
-jTextFieldBirthdayDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldBirthdayDate.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelDriversLicenceDate.setText("Driver's Licence Date");
 
-    jTextFieldDriversLicenceDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldDriversLicenceDate.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelPhone.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelPhone.setText("Phone");
 
-jTextFieldPhone.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldPhone.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelEmail.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelEmail.setText("Email Address");
 
-    jTextFieldEmail.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -388,9 +380,8 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             .addGap(31, 31, 31)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAddNewCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jLabelCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAddNewCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanelCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(27, Short.MAX_VALUE))

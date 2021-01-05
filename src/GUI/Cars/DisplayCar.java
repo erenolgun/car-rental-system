@@ -138,14 +138,12 @@ public class DisplayCar extends javax.swing.JFrame {
         jLabelSearch.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jLabelSearch.setText("Search by Brand, Model and Year:");
 
-        jComboBoxSearch.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
+        jComboBoxSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBoxSearch.setBorder(null);
 
         jLabelCarID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
         jLabelCarID.setText("Car ID");
 
-        jTextFieldCarID.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jTextFieldCarID.setText("jTextField1");
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);
         jTextFieldCarID.setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(0, 10, 0, 0)));
@@ -153,56 +151,42 @@ public class DisplayCar extends javax.swing.JFrame {
     jLabelBrand.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelBrand.setText("Brand");
 
-    jTextFieldBrand.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldBrand.setText("jTextField1");
     jTextFieldBrand.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelModel.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelModel.setText("Model");
 
-jTextFieldModel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldModel.setText("jTextField1");
 jTextFieldModel.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelFuelType.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelFuelType.setText("Fuel Type");
 
-    jTextFieldFuelType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldFuelType.setText("jTextField1");
     jTextFieldFuelType.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelGearType.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelGearType.setText("Gear Type");
 
-jTextFieldGearType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldGearType.setText("jTextField1");
 jTextFieldGearType.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelCarType.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelCarType.setText("Car Type");
 
-    jTextFieldCarType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldCarType.setText("jTextField1");
     jTextFieldCarType.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelModelYear.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelModelYear.setText("Model Year");
 
-jTextFieldModelYear.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldModelYear.setText("jTextField1");
 jTextFieldModelYear.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelPrice.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelPrice.setText("Price");
 
-    jTextFieldPrice.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldPrice.setText("jTextField1");
     jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +212,10 @@ jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
         .addGroup(jPanelCarsLayout.createSequentialGroup()
             .addGap(115, 115, 115)
             .addGroup(jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCarsLayout.createSequentialGroup()
+                    .addComponent(jLabelSearch)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jComboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanelCarsLayout.createSequentialGroup()
                     .addGroup(jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabelGearType)
@@ -260,12 +248,7 @@ jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(jTextFieldBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextFieldFuelType, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelFuelType)
-                        .addComponent(jLabelBrand)))
-                .addGroup(jPanelCarsLayout.createSequentialGroup()
-                    .addGap(89, 89, 89)
-                    .addComponent(jLabelSearch)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jComboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelBrand))))
             .addContainerGap(116, Short.MAX_VALUE))
     );
     jPanelCarsLayout.setVerticalGroup(

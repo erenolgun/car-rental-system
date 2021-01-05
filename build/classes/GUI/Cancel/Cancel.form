@@ -353,6 +353,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldID">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelName">
               <Properties>
@@ -363,6 +371,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldName">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelSurname">
               <Properties>
@@ -373,6 +386,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldSurname">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelModel">
               <Properties>
@@ -383,6 +401,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldModel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelBrand">
               <Properties>
@@ -393,6 +416,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldBrand">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPrice">
               <Properties>
@@ -403,6 +431,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrice">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPickup">
               <Properties>
@@ -413,6 +446,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPickup">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelReturn">
               <Properties>
@@ -423,6 +461,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldReturn">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCancel">
               <Properties>
