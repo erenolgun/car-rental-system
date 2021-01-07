@@ -10,5 +10,5 @@ package classes;
  * @author ereno
  */
 public interface Price {  
-    public double additionalPrice();
+    public double additionalPrice(double price, boolean childSeat, boolean navigation, boolean snowTire, boolean HGS, boolean scooter, boolean tireProtection, boolean windowProtection, boolean headlightProtection, boolean comprehensiveProtection);
 }

@@ -5,6 +5,7 @@
  */
 package GUI.Customers;
 
+import GUI.Cancel.Cancel;
 import GUI.Cars.DisplayCar;
 import GUI.Login;
 import GUI.RentingCar.RentingInformation;
@@ -88,6 +89,11 @@ public class AddCustomer extends javax.swing.JFrame {
         jButtonCancel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonCancel.setText("Cancel the Reservation");
         jButtonCancel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
 
         jButtonCustomers.setBackground(new java.awt.Color(0, 0, 0));
         jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -460,6 +466,12 @@ jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
             jRadioButtonTC.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioButtonOtherActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        Cancel cancel = new Cancel();
+        cancel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,11 +5,18 @@
  */
 package GUI.RentingCar;
 
+import GUI.Cancel.Cancel;
 import GUI.Cars.DisplayCar;
 import GUI.Customers.DisplayCustomer;
+import classes.Car;
+import classes.Person;
+import classes.SystemClass;
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import sun.util.BuddhistCalendar;
 
 
 /**
@@ -66,6 +73,8 @@ public class RentingInformation extends javax.swing.JFrame {
         jLabelReturnDate = new javax.swing.JLabel();
         jTextFieldReturnDate = new javax.swing.JTextField();
         jButtonNextPage = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +91,11 @@ public class RentingInformation extends javax.swing.JFrame {
         jButtonCancel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonCancel.setText("Cancel the Reservation");
         jButtonCancel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
 
         jButtonCustomers.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -134,10 +148,15 @@ public class RentingInformation extends javax.swing.JFrame {
         jLabelCustomerID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
         jLabelCustomerID.setText("ID Number");
 
+        jComboBoxCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCustomerActionPerformed(evt);
+            }
+        });
+
         jLabelName.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
         jLabelName.setText("Name");
 
-        jTextFieldName.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);
         jTextFieldName.setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(0, 10, 0, 0)));
@@ -145,21 +164,18 @@ public class RentingInformation extends javax.swing.JFrame {
     jLabelSurname.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelSurname.setText("Surname");
 
-    jTextFieldSurname.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldSurname.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
 jLabelPhone.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelPhone.setText("Phone");
 
-jTextFieldPhone.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
 jTextFieldPhone.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     jLabelEmail.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
     jLabelEmail.setText("Email Address");
 
-    jTextFieldEmail.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
         BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
@@ -169,43 +185,48 @@ jLabelCarInfo.setText("Car Information");
 jLabelCarID.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
 jLabelCarID.setText("ID Number");
 
-jLabelBrand.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-jLabelBrand.setText("Brand");
-
-jTextFieldBrand.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldBrand.setBorder(BorderFactory.createCompoundBorder(border,
-    BorderFactory.createEmptyBorder(0, 10, 0, 0)));
-
-    jLabelModel.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-    jLabelModel.setText("Model");
-
-    jTextFieldModel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldModel.setBorder(BorderFactory.createCompoundBorder(border,
-        BorderFactory.createEmptyBorder(0, 10, 0, 0)));
-
-jLabelPickupDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-jLabelPickupDate.setText("Pick-up Date Time");
-
-jTextFieldPickupDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-jTextFieldPickupDate.setBorder(BorderFactory.createCompoundBorder(border,
-    BorderFactory.createEmptyBorder(0, 10, 0, 0)));
-
-    jLabelReturnDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
-    jLabelReturnDate.setText("Return Date Time");
-
-    jTextFieldReturnDate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-    jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
-        BorderFactory.createEmptyBorder(0, 10, 0, 0)));
-
-jButtonNextPage.setBackground(new java.awt.Color(0, 0, 0));
-jButtonNextPage.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-jButtonNextPage.setForeground(new java.awt.Color(255, 255, 255));
-jButtonNextPage.setText("NEXT PAGE");
-jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
+jComboBoxCar.addActionListener(new java.awt.event.ActionListener() {
     public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButtonNextPageActionPerformed(evt);
+        jComboBoxCarActionPerformed(evt);
     }
     });
+
+    jLabelBrand.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+    jLabelBrand.setText("Brand");
+
+    jTextFieldBrand.setBorder(BorderFactory.createCompoundBorder(border,
+        BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+
+jLabelModel.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+jLabelModel.setText("Model");
+
+jTextFieldModel.setBorder(BorderFactory.createCompoundBorder(border,
+    BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+
+    jLabelPickupDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+    jLabelPickupDate.setText("Pick-up Date Time *");
+
+    jTextFieldPickupDate.setBorder(BorderFactory.createCompoundBorder(border,
+        BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+
+jLabelReturnDate.setFont(new java.awt.Font("Microsoft JhengHei", 1, 12)); // NOI18N
+jLabelReturnDate.setText("Return Date Time *");
+
+jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
+    BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+
+    jButtonNextPage.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonNextPage.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+    jButtonNextPage.setForeground(new java.awt.Color(255, 255, 255));
+    jButtonNextPage.setText("NEXT PAGE");
+    jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonNextPageActionPerformed(evt);
+        }
+    });
+
+    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+    jLabel1.setText("*The date input format have to be like DD/MM/YYYY. Please enter 0 to beginning of the months that have one digit.");
 
     javax.swing.GroupLayout jPanelRentCarLayout = new javax.swing.GroupLayout(jPanelRentCar);
     jPanelRentCar.setLayout(jPanelRentCarLayout);
@@ -260,6 +281,10 @@ jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
                                     .addComponent(jLabelModel)
                                     .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
             .addGap(48, 48, 48))
+        .addGroup(jPanelRentCarLayout.createSequentialGroup()
+            .addGap(78, 78, 78)
+            .addComponent(jLabel1)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanelRentCarLayout.setVerticalGroup(
         jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,22 +337,33 @@ jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGap(18, 18, 18)
             .addComponent(jButtonNextPage, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(32, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addGap(18, 18, 18))
     );
+
+    jTextFieldName.setEnabled(false);
+    jTextFieldSurname.setEnabled(false);
+    jTextFieldPhone.setEnabled(false);
+    jTextFieldEmail.setEnabled(false);
+    jTextFieldBrand.setEnabled(false);
+    jTextFieldModel.setEnabled(false);
+
+    jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonUpdate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+    jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
+    jButtonUpdate.setText("UPDATE");
+    jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonUpdateActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addComponent(jPanelImportant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(440, 440, 440)
-            .addComponent(jLabelRentCar)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-            .addContainerGap(128, Short.MAX_VALUE)
-            .addComponent(jPanelRentCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(116, 116, 116))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
             .addGap(23, 23, 23)
             .addComponent(jButtonRentCar)
@@ -338,6 +374,15 @@ jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
             .addGap(30, 30, 30)
             .addComponent(jButtonCars)
             .addGap(30, 30, 30))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addContainerGap(128, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabelRentCar)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanelRentCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(116, 116, 116))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,11 +394,13 @@ jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
                 .addComponent(jButtonCustomers)
                 .addComponent(jButtonCancel)
                 .addComponent(jButtonRentCar))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-            .addComponent(jLabelRentCar)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabelRentCar)
+                .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jPanelRentCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(78, 78, 78))
+            .addGap(49, 49, 49))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -384,10 +431,90 @@ jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_jButtonCarsActionPerformed
 
     private void jButtonNextPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextPageActionPerformed
+        // BOŞ BIRAKILIP NEXTE BASILINCA HATA OLUYOR, TRY-CATCH YAPILACAK
+        GregorianCalendar pickupDate = SystemClass.setCalendar(jTextFieldPickupDate.getText());
+        GregorianCalendar returnDate = SystemClass.setCalendar(jTextFieldReturnDate.getText());
+        GregorianCalendar currentDate = new GregorianCalendar();
+        
+        int customerPosition = SystemClass.searchPerson(jComboBoxCustomer);
+        int carPosition = SystemClass.searchCarByID(jComboBoxCar);
+        
+        if(pickupDate.compareTo(currentDate) >= 0){
+            if(SystemClass.cars.get(carPosition).rentedDates.isEmpty()){
+                SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
+                SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
+                SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+                System.out.println("deneme1");
+                if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition))){
+                        System.out.println("başarılı");
+                    }
+            } else {
+                if(SystemClass.isAvailable(pickupDate, carPosition)){
+                    SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
+                    SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
+                    SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+                    SystemClass.cars.get(carPosition).setPrice(SystemClass.cars.get(carPosition).discountedPrice());                   
+                } else {
+                    // ARABA UYGUN DEĞİL HATASI VERECEK
+                    System.out.println("araba uygun değil.");
+                }
+            }
+        } else {
+            // GEÇMİŞ TARİH HATASI
+            System.out.println("tarih geçmiş");
+            
+        }
+        
+        
+
         RentingExtras rentingExtras = new RentingExtras();
         rentingExtras.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonNextPageActionPerformed
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        jComboBoxCustomer.removeAllItems();
+        jComboBoxCar.removeAllItems();
+        
+        for (Person customer : SystemClass.customers) {
+            jComboBoxCustomer.insertItemAt(customer.getIdNumber(), 0);
+        }
+        
+        for (Car car : SystemClass.cars) {
+            jComboBoxCar.insertItemAt(String.valueOf(car.getCarID()), 0);
+        }
+        
+        jComboBoxCustomer.setSelectedIndex(-1);
+        jTextFieldName.setText("");
+        jTextFieldSurname.setText("");
+        jTextFieldPhone.setText("");
+        jTextFieldEmail.setText("");
+        jComboBoxCar.setSelectedIndex(-1);
+        jTextFieldBrand.setText("");
+        jTextFieldModel.setText("");
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jComboBoxCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCustomerActionPerformed
+        int position = SystemClass.searchPerson(jComboBoxCustomer);
+        
+        jTextFieldName.setText(SystemClass.customers.get(position).getName());
+        jTextFieldSurname.setText(SystemClass.customers.get(position).getSurname());
+        jTextFieldPhone.setText(SystemClass.customers.get(position).getPhone());
+        jTextFieldEmail.setText(SystemClass.customers.get(position).getMail());
+    }//GEN-LAST:event_jComboBoxCustomerActionPerformed
+
+    private void jComboBoxCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCarActionPerformed
+        int position = SystemClass.searchCarByID(jComboBoxCar);
+                
+        jTextFieldBrand.setText(SystemClass.cars.get(position).getBrand());
+        jTextFieldModel.setText(SystemClass.cars.get(position).getModel());
+    }//GEN-LAST:event_jComboBoxCarActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        Cancel cancel = new Cancel();
+        cancel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,8 +557,10 @@ jButtonNextPage.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JButton jButtonCustomers;
     private javax.swing.JButton jButtonNextPage;
     private javax.swing.JButton jButtonRentCar;
+    private javax.swing.JButton jButtonUpdate;
     private javax.swing.JComboBox<String> jComboBoxCar;
     private javax.swing.JComboBox<String> jComboBoxCustomer;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBrand;
     private javax.swing.JLabel jLabelCarID;
     private javax.swing.JLabel jLabelCarInfo;

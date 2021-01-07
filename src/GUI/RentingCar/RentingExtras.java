@@ -5,8 +5,11 @@
  */
 package GUI.RentingCar;
 
+import GUI.Cancel.Cancel;
 import GUI.Cars.DisplayCar;
 import GUI.Customers.DisplayCustomer;
+import classes.SystemClass;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -51,8 +54,8 @@ public class RentingExtras extends javax.swing.JFrame {
         jCheckBoxSnowTire = new javax.swing.JCheckBox();
         jLabelHGS = new javax.swing.JLabel();
         jCheckBoxHGS = new javax.swing.JCheckBox();
-        jLabelYoungDriver = new javax.swing.JLabel();
-        jCheckBoxYoungDriver = new javax.swing.JCheckBox();
+        jLabeScooter = new javax.swing.JLabel();
+        jCheckBoxScooter = new javax.swing.JCheckBox();
         jLabelProtection = new javax.swing.JLabel();
         jLabelTire = new javax.swing.JLabel();
         jCheckBoxTire = new javax.swing.JCheckBox();
@@ -65,6 +68,8 @@ public class RentingExtras extends javax.swing.JFrame {
         jLabelTotalPrice = new javax.swing.JLabel();
         jTextFieldTotalPrice = new javax.swing.JTextField();
         jButtonRent = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +91,11 @@ public class RentingExtras extends javax.swing.JFrame {
         jButtonCancel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonCancel.setText("Cancel the Reservation");
         jButtonCancel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
 
         jButtonCustomers.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -119,7 +129,7 @@ public class RentingExtras extends javax.swing.JFrame {
         jPanelImportant.setLayout(jPanelImportantLayout);
         jPanelImportantLayout.setHorizontalGroup(
             jPanelImportantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelImportant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelImportant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
         );
         jPanelImportantLayout.setVerticalGroup(
             jPanelImportantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,13 +142,15 @@ public class RentingExtras extends javax.swing.JFrame {
         jTextAreaInformation.setColumns(20);
         jTextAreaInformation.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
         jTextAreaInformation.setRows(5);
+        jTextAreaInformation.setText("PLEASE UPDATE THE PAGE.");
         jScrollPaneInformation.setViewportView(jTextAreaInformation);
+        jTextAreaInformation.setEditable(false);
 
         javax.swing.GroupLayout jPanelInformationLayout = new javax.swing.GroupLayout(jPanelInformation);
         jPanelInformation.setLayout(jPanelInformationLayout);
         jPanelInformationLayout.setHorizontalGroup(
             jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneInformation, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+            .addComponent(jScrollPaneInformation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
         jPanelInformationLayout.setVerticalGroup(
             jPanelInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +164,7 @@ public class RentingExtras extends javax.swing.JFrame {
         jLabelExtras.setText("Recommended Extras");
 
         jLabelChildSeat.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelChildSeat.setText("Child Seat          50TL/day");
+        jLabelChildSeat.setText("Child Seat          30TL/day");
 
         jCheckBoxChildSeat.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxChildSeat.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -163,7 +175,7 @@ public class RentingExtras extends javax.swing.JFrame {
         });
 
         jLabelNavigation.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelNavigation.setText("Navigation        50TL/day");
+        jLabelNavigation.setText("Navigation         20TL/day");
 
         jCheckBoxNavigation.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxNavigation.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -185,7 +197,7 @@ public class RentingExtras extends javax.swing.JFrame {
         });
 
         jLabelHGS.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelHGS.setText("HGS                    50TL/day");
+        jLabelHGS.setText("HGS                    60TL/day");
 
         jCheckBoxHGS.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxHGS.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -195,14 +207,14 @@ public class RentingExtras extends javax.swing.JFrame {
             }
         });
 
-        jLabelYoungDriver.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelYoungDriver.setText("Young Driver      50TL/day");
+        jLabeScooter.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+        jLabeScooter.setText("Scooter               15TL/day");
 
-        jCheckBoxYoungDriver.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBoxYoungDriver.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jCheckBoxYoungDriver.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxScooter.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxScooter.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+        jCheckBoxScooter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxYoungDriverActionPerformed(evt);
+                jCheckBoxScooterActionPerformed(evt);
             }
         });
 
@@ -210,7 +222,7 @@ public class RentingExtras extends javax.swing.JFrame {
         jLabelProtection.setText("Recommended Protection Options");
 
         jLabelTire.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelTire.setText("Tire Protection              50TL/day");
+        jLabelTire.setText("Tire Protection              20TL/day");
 
         jCheckBoxTire.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxTire.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -221,7 +233,7 @@ public class RentingExtras extends javax.swing.JFrame {
         });
 
         jLabelWindow.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelWindow.setText("Window Protection      50TL/day");
+        jLabelWindow.setText("Window Protection      25TL/day");
 
         jCheckBoxWindow.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxWindow.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -232,7 +244,7 @@ public class RentingExtras extends javax.swing.JFrame {
         });
 
         jLabelHeadlight.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-        jLabelHeadlight.setText("Headlight Protection    50TL/day");
+        jLabelHeadlight.setText("Headlight Protection    15TL/day");
 
         jCheckBoxHeadlight.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxHeadlight.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -256,14 +268,16 @@ public class RentingExtras extends javax.swing.JFrame {
         jLabelTotalPrice.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         jLabelTotalPrice.setText("Total Price:");
 
-        jTextFieldTotalPrice.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        jTextFieldTotalPrice.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jTextFieldTotalPrice.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldTotalPrice.setText("jTextField1");
 
         jButtonRent.setBackground(new java.awt.Color(0, 0, 0));
         jButtonRent.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         jButtonRent.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRent.setText("RENT CAR");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jLabel1.setText("₺");
 
         javax.swing.GroupLayout jPanelExtrasLayout = new javax.swing.GroupLayout(jPanelExtras);
         jPanelExtras.setLayout(jPanelExtrasLayout);
@@ -273,7 +287,7 @@ public class RentingExtras extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
-                        .addComponent(jLabelYoungDriver)
+                        .addComponent(jLabeScooter)
                         .addContainerGap())
                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
                         .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -299,15 +313,11 @@ public class RentingExtras extends javax.swing.JFrame {
                                             .addComponent(jCheckBoxChildSeat)))
                                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jCheckBoxYoungDriver)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                                .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButtonRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelExtrasLayout.createSequentialGroup()
-                                        .addComponent(jLabelTotalPrice)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldTotalPrice))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelExtrasLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxScooter)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                                .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonRent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanelExtrasLayout.createSequentialGroup()
                                         .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabelHeadlight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabelWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -318,7 +328,13 @@ public class RentingExtras extends javax.swing.JFrame {
                                             .addComponent(jCheckBoxHeadlight, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jCheckBoxComprehensive, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jCheckBoxWindow)
-                                            .addComponent(jCheckBoxTire))))
+                                            .addComponent(jCheckBoxTire)))
+                                    .addGroup(jPanelExtrasLayout.createSequentialGroup()
+                                        .addComponent(jLabelTotalPrice)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextFieldTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(46, 46, 46))))))
         );
         jPanelExtrasLayout.setVerticalGroup(
@@ -384,45 +400,60 @@ public class RentingExtras extends javax.swing.JFrame {
                 .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jLabelYoungDriver))
+                        .addComponent(jLabeScooter))
                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabelTotalPrice))
                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBoxYoungDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanelExtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCheckBoxScooter, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(16, 16, 16)
                 .addComponent(jButtonRent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonUpdate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+        jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonUpdate.setText("UPDATE");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelImportant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(440, 440, 440)
-                .addComponent(jLabelRentCar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButtonRentCar)
-                .addGap(29, 29, 29)
-                .addComponent(jButtonCancel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCustomers)
-                .addGap(30, 30, 30)
-                .addComponent(jButtonCars)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanelInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jPanelExtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelRentCar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButtonRentCar)
+                                .addGap(29, 29, 29)
+                                .addComponent(jButtonCancel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonCustomers)
+                                .addGap(30, 30, 30)
+                                .addComponent(jButtonCars)))))
                 .addGap(26, 26, 26))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jPanelExtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,13 +465,15 @@ public class RentingExtras extends javax.swing.JFrame {
                     .addComponent(jButtonCustomers)
                     .addComponent(jButtonCancel)
                     .addComponent(jButtonRentCar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelRentCar)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelRentCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelExtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -451,7 +484,7 @@ public class RentingExtras extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -459,39 +492,291 @@ public class RentingExtras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxChildSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxChildSeatActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(!jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));
     }//GEN-LAST:event_jCheckBoxChildSeatActionPerformed
 
     private void jCheckBoxNavigationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxNavigationActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(!jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxNavigationActionPerformed
 
     private void jCheckBoxHGSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxHGSActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(!jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxHGSActionPerformed
 
     private void jCheckBoxSnowTireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSnowTireActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(!jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxSnowTireActionPerformed
 
-    private void jCheckBoxYoungDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxYoungDriverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxYoungDriverActionPerformed
+    private void jCheckBoxScooterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxScooterActionPerformed
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(!jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
+    }//GEN-LAST:event_jCheckBoxScooterActionPerformed
 
     private void jCheckBoxTireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTireActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(!jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxTireActionPerformed
 
     private void jCheckBoxWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxWindowActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(!jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxWindowActionPerformed
 
     private void jCheckBoxComprehensiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxComprehensiveActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(!jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxComprehensiveActionPerformed
 
     private void jCheckBoxHeadlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxHeadlightActionPerformed
-        // TODO add your handling code here:
+        double price = Double.parseDouble(jTextFieldTotalPrice.getText());
+        if(jCheckBoxChildSeat.isSelected()){
+            price -= 30;
+        }
+        if(jCheckBoxComprehensive.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxHGS.isSelected()){
+            price -= 60;
+        }
+        if(!jCheckBoxHeadlight.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxNavigation.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxScooter.isSelected()){
+            price -= 15;
+        }
+        if(jCheckBoxSnowTire.isSelected()){
+            price -= 50;
+        }
+        if(jCheckBoxTire.isSelected()){
+            price -= 20;
+        }
+        if(jCheckBoxWindow.isSelected()){
+            price -= 25;
+        }
+        jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxHeadlightActionPerformed
 
     private void jButtonRentCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRentCarActionPerformed
@@ -511,6 +796,22 @@ public class RentingExtras extends javax.swing.JFrame {
         displayCar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCarsActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        Cancel cancel = new Cancel();
+        cancel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelActionPerformed
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        //DecimalFormat formattedPrice = new DecimalFormat("#.##");
+        jTextAreaInformation.setText(SystemClass.rentedCar.get(0).toString());
+        
+        double discountedPrice = SystemClass.rentedCar.get(0).discountedPrice();
+        
+        jTextFieldTotalPrice.setText(String.valueOf(Math.round(discountedPrice)));
+        //jTextFieldTotalPrice.setText(String.valueOf(formattedPrice.format(discountedPrice)));
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -553,15 +854,18 @@ public class RentingExtras extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCustomers;
     private javax.swing.JButton jButtonRent;
     private javax.swing.JButton jButtonRentCar;
+    private javax.swing.JButton jButtonUpdate;
     private javax.swing.JCheckBox jCheckBoxChildSeat;
     private javax.swing.JCheckBox jCheckBoxComprehensive;
     private javax.swing.JCheckBox jCheckBoxHGS;
     private javax.swing.JCheckBox jCheckBoxHeadlight;
     private javax.swing.JCheckBox jCheckBoxNavigation;
+    private javax.swing.JCheckBox jCheckBoxScooter;
     private javax.swing.JCheckBox jCheckBoxSnowTire;
     private javax.swing.JCheckBox jCheckBoxTire;
     private javax.swing.JCheckBox jCheckBoxWindow;
-    private javax.swing.JCheckBox jCheckBoxYoungDriver;
+    private javax.swing.JLabel jLabeScooter;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelChildSeat;
     private javax.swing.JLabel jLabelComprehensive;
     private javax.swing.JLabel jLabelExtras;
@@ -575,7 +879,6 @@ public class RentingExtras extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTire;
     private javax.swing.JLabel jLabelTotalPrice;
     private javax.swing.JLabel jLabelWindow;
-    private javax.swing.JLabel jLabelYoungDriver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelExtras;
     private javax.swing.JPanel jPanelImportant;

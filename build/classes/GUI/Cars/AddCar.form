@@ -60,15 +60,18 @@
                   <Component id="jButtonCars" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="450" max="-2" attributes="0"/>
-                  <Component id="jLabelNewCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="235" max="32767" attributes="0"/>
-                  <Component id="jPanelNewCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+                  <EmptySpace pref="231" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jPanelNewCar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelNewCar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,11 +86,11 @@
                       <Component id="jButtonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRentCar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace pref="76" max="32767" attributes="0"/>
                   <Component id="jLabelNewCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanelNewCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -233,40 +236,44 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                      <Component id="jButtonAddCar" min="-2" pref="190" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldCarID" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="jLabelCarID" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelModel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldModel" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="jLabelGearType" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldGearType" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="jLabelModelYear" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldModelYear" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="87" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelBrand" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldBrand" max="32767" attributes="0"/>
-                              <Component id="jLabelFuelType" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldFuelType" alignment="0" pref="190" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabelModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldModel" alignment="0" pref="190" max="32767" attributes="0"/>
+                              <Component id="jLabelGearType" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jRadioButtonAuto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jRadioButtonManuel" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="jLabelCarType" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldCarType" alignment="0" pref="190" max="32767" attributes="0"/>
-                              <Component id="jLabelPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxCarType" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jTextFieldPrice" min="-2" pref="168" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabelTL" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabelPrice" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButtonAddCar" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabelModelYear" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldModelYear" alignment="0" pref="190" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabelBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldBrand" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelFuelType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldFuelType" alignment="0" pref="190" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -274,79 +281,64 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCarID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCarType" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldCarID" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jTextFieldBrand" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabelModel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldModel" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jTextFieldBrand" min="-2" pref="28" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelModel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldModel" min="-2" pref="28" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelFuelType" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldFuelType" min="-2" pref="28" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelFuelType" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldFuelType" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jComboBoxCarType" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="jLabelGearType" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldGearType" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jRadioButtonAuto" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonManuel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelCarType" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldCarType" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="jLabelModelYear" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldModelYear" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelPrice" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldPrice" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabelTL" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="jLabelTL" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jButtonAddCar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="jButtonAddCar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelCarID">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Car ID"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldCarID">
-              <Properties>
-                <Property name="text" postCode="Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabelBrand">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -361,6 +353,9 @@
                   <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Border border = BorderFactory.createLineBorder(Color.BLACK, 1, true);"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelModel">
               <Properties>
@@ -400,13 +395,6 @@
                 <Property name="text" type="java.lang.String" value="Gear Type"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldGearType">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabelCarType">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -415,12 +403,20 @@
                 <Property name="text" type="java.lang.String" value="Car Type"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldCarType">
+            <Component class="javax.swing.JComboBox" name="jComboBoxCarType">
               <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BorderFactory.createCompoundBorder(border,&#xa;    BorderFactory.createEmptyBorder(0, 10, 0, 0))" type="code"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Economic"/>
+                    <StringItem index="1" value="Comfort"/>
+                    <StringItem index="2" value="Luxury"/>
+                  </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="-1"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelModelYear">
               <Properties>
@@ -476,6 +472,34 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddCarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="jRadioButtonAuto">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Microsoft JhengHei" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Automatic"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAutoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="jRadioButtonManuel">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Microsoft JhengHei" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Manuel"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonManuelActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

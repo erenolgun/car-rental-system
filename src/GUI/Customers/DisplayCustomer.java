@@ -5,6 +5,7 @@
  */
 package GUI.Customers;
 
+import GUI.Cancel.Cancel;
 import GUI.Cars.DisplayCar;
 import GUI.RentingCar.RentingInformation;
 import classes.Person;
@@ -89,6 +90,11 @@ public class DisplayCustomer extends javax.swing.JFrame {
         jButtonCancel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonCancel.setText("Cancel the Reservation");
         jButtonCancel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
 
         jButtonCustomers.setBackground(new java.awt.Color(0, 0, 0));
         jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -332,6 +338,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
     jButtonSave.setEnabled(false);
 
     jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonUpdate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
     jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
     jButtonUpdate.setText("UPDATE");
     jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -426,14 +433,8 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
 
     private void jComboBoxIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDActionPerformed
         System.out.println(jComboBoxID.getSelectedItem());
-        int position = 0;
-        int i = 0;
-        for (Person customer : SystemClass.customers) {
-            if(customer.getIdNumber().equals(jComboBoxID.getSelectedItem())){
-                position = i;
-            }
-            i++;
-        }
+        
+        int position = SystemClass.searchPerson(jComboBoxID);
 
         jTextFieldName.setText(SystemClass.customers.get(position).getName());
         jTextFieldSurname.setText(SystemClass.customers.get(position).getSurname());
@@ -449,7 +450,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         jComboBoxID.removeAllItems();
         for (Person customer : SystemClass.customers) {
             jComboBoxID.insertItemAt(customer.getIdNumber(), 0);
-        }     
+        }    
         
         jTextFieldName.setText("");
         jTextFieldSurname.setText("");
@@ -475,14 +476,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_jButtonEditActionPerformed
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        int position = 0;
-        int i = 0;
-        for (Person customer : SystemClass.customers) {
-            if(customer.getIdNumber().equals(jComboBoxID.getSelectedItem())){
-                position = i;
-            }
-            i++;
-        }
+        int position = SystemClass.searchPerson(jComboBoxID);
         
         SystemClass.customers.get(position).setName(jTextFieldName.getText());
         SystemClass.customers.get(position).setSurname(jTextFieldSurname.getText());
@@ -503,6 +497,12 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         jTextFieldEmail.setEnabled(false);
         jButtonSave.setEnabled(false);
     }//GEN-LAST:event_jButtonSaveActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        Cancel cancel = new Cancel();
+        cancel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
      * @param args the command line arguments

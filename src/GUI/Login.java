@@ -7,8 +7,13 @@
 package GUI;
 
 import GUI.RentingCar.RentingInformation;
+import classes.EconomicCar;
+import classes.LuxuryCar;
 import classes.Person;
 import classes.SystemClass;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+import java.awt.Color;
 
 
 /**
@@ -54,100 +59,114 @@ public class Login extends javax.swing.JFrame {
         jPanelLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
         jTextFieldUsername.setBackground(new java.awt.Color(0, 0, 0));
-        jTextFieldUsername.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+        jTextFieldUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextFieldUsername.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldUsername.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jTextFieldUsername.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextFieldUsername.setMargin(new java.awt.Insets(2, 50, 2, 2));
+        Border border = BorderFactory.createLineBorder(Color.WHITE, 1, true);
+        jTextFieldUsername.setBorder(BorderFactory.createCompoundBorder(border,
+            BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+    jTextFieldUsername.setCaretColor(new java.awt.Color(255, 255, 255));
+    jTextFieldUsername.setMargin(new java.awt.Insets(2, 50, 2, 2));
 
-        jLabelUsername.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
-        jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUsername.setText("Username");
+    jLabelUsername.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
+    jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
+    jLabelUsername.setText("Username");
 
-        jLabelPassword.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
-        jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPassword.setText("Password");
+    jLabelPassword.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
+    jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
+    jLabelPassword.setText("Password");
 
-        jButtonLogin.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonLogin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
-        jButtonLogin.setText("LOGIN");
-        jButtonLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jButtonLogin.setMargin(new java.awt.Insets(5, 20, 5, 20));
-        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoginActionPerformed(evt);
-            }
-        });
+    jButtonLogin.setBackground(new java.awt.Color(255, 255, 255));
+    jButtonLogin.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+    jButtonLogin.setText("LOGIN");
+    jButtonLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+    jButtonLogin.setMargin(new java.awt.Insets(5, 20, 5, 20));
+    jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonLoginActionPerformed(evt);
+        }
+    });
 
-        jPasswordField1.setBackground(new java.awt.Color(0, 0, 0));
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+    jPasswordField1.setBackground(new java.awt.Color(0, 0, 0));
+    jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+    jPasswordField1.setBorder(BorderFactory.createCompoundBorder(border,
+        BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-        javax.swing.GroupLayout jPanelLoginLayout = new javax.swing.GroupLayout(jPanelLogin);
-        jPanelLogin.setLayout(jPanelLoginLayout);
-        jPanelLoginLayout.setHorizontalGroup(
-            jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+javax.swing.GroupLayout jPanelLoginLayout = new javax.swing.GroupLayout(jPanelLogin);
+jPanelLogin.setLayout(jPanelLoginLayout);
+jPanelLoginLayout.setHorizontalGroup(
+    jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    .addGroup(jPanelLoginLayout.createSequentialGroup()
+        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLoginLayout.createSequentialGroup()
-                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jLabelPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)))
-                    .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(jButtonLogin)))
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
-        jPanelLoginLayout.setVerticalGroup(
-            jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(125, 125, 125)
+                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jLabelPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)))
             .addGroup(jPanelLoginLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabelUsername)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabelPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonLogin)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
+                .addGap(243, 243, 243)
+                .addComponent(jButtonLogin)))
+        .addContainerGap(130, Short.MAX_VALUE))
+    );
+    jPanelLoginLayout.setVerticalGroup(
+        jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanelLoginLayout.createSequentialGroup()
+            .addGap(57, 57, 57)
+            .addComponent(jLabelUsername)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(32, 32, 32)
+            .addComponent(jLabelPassword)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButtonLogin)
+            .addContainerGap(65, Short.MAX_VALUE))
+    );
 
-        jPanel1.add(jPanelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 580, 320));
+    jPanel1.add(jPanelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 580, 320));
 
-        jLabelLogin.setFont(new java.awt.Font("Microsoft JhengHei", 0, 36)); // NOI18N
-        jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLogin.setText("LOGIN");
-        jPanel1.add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
+    jLabelLogin.setFont(new java.awt.Font("Microsoft JhengHei", 0, 36)); // NOI18N
+    jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
+    jLabelLogin.setText("LOGIN");
+    jPanel1.add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
 
-        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/loginBackground.png"))); // NOI18N
-        jPanel1.add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+    jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/loginBackground.png"))); // NOI18N
+    jPanel1.add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
 
-        pack();
-        setLocationRelativeTo(null);
+    pack();
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         
-        //BAŞKA FRAME AÇIP, EKRANDA OLAN FRAME'İ KAPAMA
+        String username = jTextFieldUsername.getText();
+        String password = jPasswordField1.getText();
+        
+        /*if(username.equals("admin") && password.equals("admin")){
+            RentingInformation RentingInformation = new RentingInformation();
+            RentingInformation.setVisible(true);
+            this.dispose();
+        } else {
+            System.out.println("YANLIŞ ŞİFREE");
+        }*/
         RentingInformation RentingInformation = new RentingInformation();
-        RentingInformation.setVisible(true);
-        this.dispose();
+            RentingInformation.setVisible(true);
+            this.dispose();
+        //BAŞKA FRAME AÇIP, EKRANDA OLAN FRAME'İ KAPAMA
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
@@ -189,9 +208,12 @@ public class Login extends javax.swing.JFrame {
                 SystemClass.customers.add(person1);
                 SystemClass.customers.add(person2);
                 
-                for (Person customer : SystemClass.customers) {
-                    System.out.println(customer);
-                }
+                EconomicCar economicCar = new EconomicCar(78975, "Fiat", "Egea", "Fuel", "Automatic", 2014, 123);
+                LuxuryCar luxuryCar = new LuxuryCar(979, "Ford", "Focus", "Diesel", "Manuel", 2004, 651);
+               
+                SystemClass.cars.add(luxuryCar);
+                SystemClass.cars.add(economicCar);
+
                 
             }
         });

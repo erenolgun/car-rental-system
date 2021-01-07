@@ -5,6 +5,9 @@
  */
 package GUI.Cancel;
 
+import GUI.Cars.DisplayCar;
+import GUI.Customers.DisplayCustomer;
+import GUI.RentingCar.RentingInformation;
 import classes.Person;
 import classes.SystemClass;
 import java.awt.Color;
@@ -36,10 +39,10 @@ public class Cancel extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanelImportant2 = new javax.swing.JPanel();
         jLabelImportant2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonRentCar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonCustomers = new javax.swing.JButton();
+        jButtonCars = new javax.swing.JButton();
         jPanelCustomers = new javax.swing.JPanel();
         jLabelSearch = new javax.swing.JLabel();
         jComboBoxSearch = new javax.swing.JComboBox<>();
@@ -86,19 +89,34 @@ public class Cancel extends javax.swing.JFrame {
             .addComponent(jLabelImportant2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
         );
 
-        jButton1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButton1.setText("Rent a Car");
+        jButtonRentCar.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+        jButtonRentCar.setText("Rent a Car");
+        jButtonRentCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRentCarActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cancel the Reservation");
 
-        jButton3.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButton3.setText("Customers");
+        jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+        jButtonCustomers.setText("Customers");
+        jButtonCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCustomersActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButton4.setText("Cars");
+        jButtonCars.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
+        jButtonCars.setText("Cars");
+        jButtonCars.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCarsActionPerformed(evt);
+            }
+        });
 
         jPanelCustomers.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCustomers.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -277,15 +295,15 @@ jPanelCustomersLayout.setHorizontalGroup(
         .addComponent(jPanelImportant2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(25, 25, 25)
-            .addComponent(jButton1)
+            .addComponent(jButtonRentCar)
             .addGap(29, 29, 29)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jButton4))
+                    .addComponent(jButtonCars))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,10 +318,10 @@ jPanelCustomersLayout.setHorizontalGroup(
             .addComponent(jPanelImportant2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonRentCar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButtonCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonCars, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(22, 22, 22)
             .addComponent(jLabelCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -323,7 +341,26 @@ jPanelCustomersLayout.setHorizontalGroup(
     );
 
     pack();
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonRentCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRentCarActionPerformed
+        RentingInformation RentingInformation = new RentingInformation();
+        RentingInformation.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonRentCarActionPerformed
+
+    private void jButtonCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCustomersActionPerformed
+        DisplayCustomer displayCustomer = new DisplayCustomer();
+        displayCustomer.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCustomersActionPerformed
+
+    private void jButtonCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarsActionPerformed
+        DisplayCar displayCar = new DisplayCar();
+        displayCar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCarsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,11 +398,11 @@ jPanelCustomersLayout.setHorizontalGroup(
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonCars;
+    private javax.swing.JButton jButtonCustomers;
+    private javax.swing.JButton jButtonRentCar;
     private javax.swing.JComboBox<String> jComboBoxSearch;
     private javax.swing.JLabel jLabelBrand;
     private javax.swing.JLabel jLabelCustomers;

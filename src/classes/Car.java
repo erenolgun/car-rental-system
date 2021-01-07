@@ -5,58 +5,52 @@
  */
 package classes;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author ereno
  */
 public abstract class Car implements Price {
-    private String brand;
-    private String model;
-    private String fuelType;
-    private int doorNumber;
-    private String gearType;
-    private int price;
-    private boolean isDriver;
-    private int carCapacity;
-    private String carColor;
-    // GUI KISMINDA KONTROLÜNÜ (SAĞLA BURADA OLSUN MU OLMASIN MI)
-    private Date pickUpDate;
-    private Date returnDate;
-    private boolean isAvailable;
+    protected int carID;
+    protected String carType;
+    protected String brand;
+    protected String model;
+    protected String fuelType;
+    protected String gearType;
+    protected int modelYear;
+    protected double price;
+    public ArrayList<GregorianCalendar> rentedDates = new ArrayList<>();
     private boolean childSeat;
     private boolean navigationSystem;
+    private boolean snowTire;
+    private boolean HGS;
+    private boolean scooter;
     private boolean tireProtection;
     private boolean windowProtection;
     private boolean headlightProtection;
     private boolean comprehensiveDamagePackage;
-    private boolean snowTire;
-    private boolean HGS;
-    private boolean youngDriverSurcharge;
 
-    public Car(String brand, String model, String fuelType, int doorNumber, String gearType, int price, boolean isDriver, int carCapacity, String carColor, Date pickUpDate, Date returnDate, boolean isAvailable, boolean childSeat, boolean navigationSystem, boolean tireProtection, boolean windowProtection, boolean headlightProtection, boolean comprehensiveDamagePackage, boolean snowTire, boolean HGS, boolean youngDriverSurcharge) {
+    public Car(int carID, String brand, String model, String fuelType, String gearType, int modelYear, double price) {
+        this.carID = carID;
         this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;
-        this.doorNumber = doorNumber;
         this.gearType = gearType;
+        this.modelYear = modelYear;
         this.price = price;
-        this.isDriver = isDriver;
-        this.carCapacity = carCapacity;
-        this.carColor = carColor;
-        this.pickUpDate = pickUpDate;
-        this.returnDate = returnDate;
-        this.isAvailable = isAvailable;
-        this.childSeat = childSeat;
-        this.navigationSystem = navigationSystem;
-        this.tireProtection = tireProtection;
-        this.windowProtection = windowProtection;
-        this.headlightProtection = headlightProtection;
-        this.comprehensiveDamagePackage = comprehensiveDamagePackage;
-        this.snowTire = snowTire;
-        this.HGS = HGS;
-        this.youngDriverSurcharge = youngDriverSurcharge;
+    }
+    
+    //PRICE EKLENDİĞİNDE ESKİ HALİNE BAK
+
+    public int getCarID() {
+        return carID;
+    }
+
+    public String getCarType() {
+        return carType;
     }
 
     public String getBrand() {
@@ -71,76 +65,24 @@ public abstract class Car implements Price {
         return fuelType;
     }
 
-    public int getDoorNumber() {
-        return doorNumber;
-    }
-
     public String getGearType() {
         return gearType;
     }
 
-    public int getPrice() {
+    public int getModelYear() {
+        return modelYear;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public boolean isIsDriver() {
-        return isDriver;
+    public void setCarID(int carID) {
+        this.carID = carID;
     }
 
-    public int getCarCapacity() {
-        return carCapacity;
-    }
-
-    public String getCarColor() {
-        return carColor;
-    }
-
-    public Date getPickUpDate() {
-        return pickUpDate;
-    }
-
-    public Date getReturnDate() {
-        return returnDate;
-    }
-
-    public boolean isIsAvailable() {
-        return isAvailable;
-    }
-
-    public boolean isChildSeat() {
-        return childSeat;
-    }
-
-    public boolean isNavigationSystem() {
-        return navigationSystem;
-    }
-
-    public boolean isTireProtection() {
-        return tireProtection;
-    }
-
-    public boolean isWindowProtection() {
-        return windowProtection;
-    }
-
-    public boolean isHeadlightProtection() {
-        return headlightProtection;
-    }
-
-    public boolean isComprehensiveDamagePackage() {
-        return comprehensiveDamagePackage;
-    }
-
-    public boolean isSnowTire() {
-        return snowTire;
-    }
-
-    public boolean isHGS() {
-        return HGS;
-    }
-
-    public boolean isYoungDriverSurcharge() {
-        return youngDriverSurcharge;
+    public void setCarType(String carType) {
+        this.carType = carType;
     }
 
     public void setBrand(String brand) {
@@ -155,83 +97,27 @@ public abstract class Car implements Price {
         this.fuelType = fuelType;
     }
 
-    public void setDoorNumber(int doorNumber) {
-        this.doorNumber = doorNumber;
-    }
-
     public void setGearType(String gearType) {
         this.gearType = gearType;
     }
 
-    public void setPrice(int price) {
+    public void setModelYear(int modelYear) {
+        this.modelYear = modelYear;
+    }
+
+    public void setPrice(double price) {
         this.price = price;
-    }
-
-    public void setIsDriver(boolean isDriver) {
-        this.isDriver = isDriver;
-    }
-
-    public void setCarCapacity(int carCapacity) {
-        this.carCapacity = carCapacity;
-    }
-
-    public void setCarColor(String carColor) {
-        this.carColor = carColor;
-    }
-
-    public void setPickUpDate(Date pickUpDate) {
-        this.pickUpDate = pickUpDate;
-    }
-
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = returnDate;
-    }
-
-    public void setIsAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
-
-    public void setChildSeat(boolean childSeat) {
-        this.childSeat = childSeat;
-    }
-
-    public void setNavigationSystem(boolean navigationSystem) {
-        this.navigationSystem = navigationSystem;
-    }
-
-    public void setTireProtection(boolean tireProtection) {
-        this.tireProtection = tireProtection;
-    }
-
-    public void setWindowProtection(boolean windowProtection) {
-        this.windowProtection = windowProtection;
-    }
-
-    public void setHeadlightProtection(boolean headlightProtection) {
-        this.headlightProtection = headlightProtection;
-    }
-
-    public void setComprehensiveDamagePackage(boolean comprehensiveDamagePackage) {
-        this.comprehensiveDamagePackage = comprehensiveDamagePackage;
-    }
-
-    public void setSnowTire(boolean snowTire) {
-        this.snowTire = snowTire;
-    }
-
-    public void setHGS(boolean HGS) {
-        this.HGS = HGS;
-    }
-
-    public void setYoungDriverSurcharge(boolean youngDriverSurcharge) {
-        this.youngDriverSurcharge = youngDriverSurcharge;
     }
 
     @Override
     public String toString() {
-        return "Cars{" + "brand=" + brand + ", model=" + model + ", fuelType=" + fuelType + ", doorNumber=" + doorNumber + ", gearType=" + gearType + ", price=" + price + ", isDriver=" + isDriver + ", carCapacity=" + carCapacity + ", carColor=" + carColor + ", pickUpDate=" + pickUpDate + ", returnDate=" + returnDate + ", isAvailable=" + isAvailable + ", childSeat=" + childSeat + ", navigationSystem=" + navigationSystem + ", tireProtection=" + tireProtection + ", windowProtection=" + windowProtection + ", headlightProtection=" + headlightProtection + ", comprehensiveDamagePackage=" + comprehensiveDamagePackage + ", snowTire=" + snowTire + ", HGS=" + HGS + ", youngDriverSurcharge=" + youngDriverSurcharge + '}';
+        String output = "";
+        for (GregorianCalendar rentedDate : rentedDates) {
+            output += "\n" + String.valueOf(rentedDate.get(Calendar.DAY_OF_MONTH) + "/" + String.valueOf(rentedDate.get(Calendar.MONTH) + 1) + "/") + String.valueOf(rentedDate.get(Calendar.YEAR));
+        }
+        return "Car ID=" + carID + "\nCar Type=" + carType + "\nBrand=" + brand + "\nModel=" + model + "\nFuel Type=" + fuelType + "\nGear Type=" + gearType + "\nModel Year=" + modelYear + "\nPrice=" + price + output;
     }
-    
-    public abstract int price();
+
+    public abstract double discountedPrice();
     
 }

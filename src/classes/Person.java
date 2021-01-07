@@ -5,6 +5,8 @@
  */
 package classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ereno
@@ -18,6 +20,7 @@ public class Person {
     protected String licenceDate;
     protected String phone;
     protected String mail;
+    public ArrayList<Car> rentedCars = new ArrayList<>();
 
     public Person(String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) {
         this.name = name;
