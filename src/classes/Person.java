@@ -103,7 +103,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", surname=" + surname + ", nationality=" + nationality + ", idNumber=" + idNumber + ", birthdayDate=" + birthdayDate + ", licenceDate=" + licenceDate + ", phone=" + phone + ", mail=" + mail + '}';
+        return "\n\nCUSTOMER'S INFORMATION" + "\nName=" + name + "\nSurname=" + surname + "\nNationality=" + nationality + "\nID Number=" + idNumber + "\nBirthday Date=" + birthdayDate + "\nLicence Date=" + licenceDate + "\nPhone=" + phone + "\nMail=" + mail;
     }
 
 

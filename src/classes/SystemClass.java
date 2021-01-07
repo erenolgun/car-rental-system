@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,6 +19,7 @@ public class SystemClass {
     public static ArrayList<Person> customers = new ArrayList<>();
     public static ArrayList<Car> cars = new ArrayList<>();
     public static ArrayList<Car> rentedCar = new ArrayList<>();
+    public static ArrayList<Person> rentedCustomer = new ArrayList<>();
     public static int id = 1;
     
     
@@ -35,11 +37,11 @@ public class SystemClass {
         return isAdded;
     }
     
-    public static boolean removePerson(Person p){
+    /*public static boolean removePerson(Person p){
         boolean isRemoved = false;
         isRemoved = customers.remove(p);
         return isRemoved;
-    }
+    }*/
     
     public static boolean addCar(Car c){
         boolean isAdded = false;
@@ -51,6 +53,13 @@ public class SystemClass {
     public static boolean addRentedCar(Car c){
         boolean isAdded = false;
         isAdded = rentedCar.add(c);
+        id++;  
+        return isAdded;
+    }
+    
+    public static boolean addRentedCustomer(Person p){
+        boolean isAdded = false;
+        isAdded = rentedCustomer.add(p);
         id++;  
         return isAdded;
     }
@@ -101,6 +110,22 @@ public class SystemClass {
             i++;
         }
         return position;
+    }
+    
+    public static boolean cancelReservation(JTextField id){
+        boolean isCanceled = false;
+        int position = 0;
+        int i = 0;
+        for (Person customer : SystemClass.customers) {
+            if(customer.getIdNumber().equals(id.getText())){
+                position = i;
+            }
+            i++;
+        }
+        
+        customers.get(position).rentedCars.clear();
+        
+        return true;
     }
     
     public static boolean isAvailable(GregorianCalendar pickupDate, int carPosition) {

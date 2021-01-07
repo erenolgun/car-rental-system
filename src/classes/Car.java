@@ -115,7 +115,7 @@ public abstract class Car implements Price {
         for (GregorianCalendar rentedDate : rentedDates) {
             output += "\n" + String.valueOf(rentedDate.get(Calendar.DAY_OF_MONTH) + "/" + String.valueOf(rentedDate.get(Calendar.MONTH) + 1) + "/") + String.valueOf(rentedDate.get(Calendar.YEAR));
         }
-        return "Car ID=" + carID + "\nCar Type=" + carType + "\nBrand=" + brand + "\nModel=" + model + "\nFuel Type=" + fuelType + "\nGear Type=" + gearType + "\nModel Year=" + modelYear + "\nPrice=" + price + output;
+        return "CAR'S INFORMATION" + "\nCar ID=" + carID + "\nCar Type=" + carType + "\nBrand=" + brand + "\nModel=" + model + "\nFuel Type=" + fuelType + "\nGear Type=" + gearType + "\nModel Year=" + modelYear + "\nPrice=" + price + output;
     }
 
     public abstract double discountedPrice();

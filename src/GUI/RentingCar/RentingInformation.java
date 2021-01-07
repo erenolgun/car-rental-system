@@ -444,9 +444,9 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
                 SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
                 SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
                 SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
-                System.out.println("deneme1");
-                if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition))){
-                        System.out.println("başarılı");
+                //System.out.println("deneme1");
+                if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
+                        //System.out.println("başarılı");
                     }
             } else {
                 if(SystemClass.isAvailable(pickupDate, carPosition)){

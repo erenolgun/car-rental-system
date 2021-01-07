@@ -8,6 +8,7 @@ package GUI.RentingCar;
 import GUI.Cancel.Cancel;
 import GUI.Cars.DisplayCar;
 import GUI.Customers.DisplayCustomer;
+import classes.Person;
 import classes.SystemClass;
 import java.text.DecimalFormat;
 
@@ -140,7 +141,7 @@ public class RentingExtras extends javax.swing.JFrame {
         jLabelRentCar.setText("Rent a Car");
 
         jTextAreaInformation.setColumns(20);
-        jTextAreaInformation.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
+        jTextAreaInformation.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jTextAreaInformation.setRows(5);
         jTextAreaInformation.setText("PLEASE UPDATE THE PAGE.");
         jScrollPaneInformation.setViewportView(jTextAreaInformation);
@@ -275,6 +276,11 @@ public class RentingExtras extends javax.swing.JFrame {
         jButtonRent.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
         jButtonRent.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRent.setText("RENT CAR");
+        jButtonRent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRentActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel1.setText("₺");
@@ -804,14 +810,31 @@ public class RentingExtras extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
-        //DecimalFormat formattedPrice = new DecimalFormat("#.##");
-        jTextAreaInformation.setText(SystemClass.rentedCar.get(0).toString());
+
+        jTextAreaInformation.setText(SystemClass.rentedCar.get(0).toString() + SystemClass.rentedCustomer.get(0).toString());
         
         double discountedPrice = SystemClass.rentedCar.get(0).discountedPrice();
         
         jTextFieldTotalPrice.setText(String.valueOf(Math.round(discountedPrice)));
         //jTextFieldTotalPrice.setText(String.valueOf(formattedPrice.format(discountedPrice)));
     }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jButtonRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRentActionPerformed
+        double totalPrice = Double.parseDouble(jTextFieldTotalPrice.getText());
+        
+        for (Person customer : SystemClass.customers) {
+            if(SystemClass.rentedCustomer.get(0).equals(customer)){
+                customer.rentedCars.get(0).setPrice(totalPrice);
+            }
+        }
+        
+        SystemClass.rentedCar.clear();
+        SystemClass.rentedCustomer.clear();
+        
+        RentingInformation RentingInformation = new RentingInformation();
+        RentingInformation.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonRentActionPerformed
 
     /**
      * @param args the command line arguments

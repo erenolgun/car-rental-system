@@ -15,6 +15,7 @@ import classes.LuxuryCar;
 import classes.SystemClass;
 import java.awt.Color;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 /**
@@ -364,24 +365,24 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         if(jComboBoxCarType.getSelectedItem().equals("Economic")){
             EconomicCar economicCar = new EconomicCar(carID, brand, model, fuelType, fuelType, modelYear, price);
             if(SystemClass.addCar(economicCar)){
-                // ARABA EKLEMESİ BAŞARILI MESAJI
+                JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE); 
             } else {
-                // ARABA EKLENEMEDİ HATASI
+                JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
             }
             
         } else if (jComboBoxCarType.getSelectedItem().equals("Comfort")){
             ComfortCar comfortCar = new ComfortCar(carID, brand, model, fuelType, fuelType, modelYear, price);
             if(SystemClass.addCar(comfortCar)){
-                // ARABA EKLEMESİ BAŞARILI MESAJI
+                JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE); 
             } else {
-                // ARABA EKLENEMEDİ HATASI
+                JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
             }
         } else if (jComboBoxCarType.getSelectedItem().equals("Luxury")){
             LuxuryCar luxuryCar = new LuxuryCar(carID, brand, model, fuelType, fuelType, modelYear, price);
             if(SystemClass.addCar(luxuryCar)){
-                // ARABA EKLEMESİ BAŞARILI MESAJI
+                JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE); 
             } else {
-                // ARABA EKLENEMEDİ HATASI
+                JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
             }
         } else {
             // COMBOBOX SEÇİLMEDİ HATASI
