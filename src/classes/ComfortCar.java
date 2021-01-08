@@ -5,8 +5,6 @@
  */
 package classes;
 
-import java.util.Date;
-
 /**
  *
  * @author ereno
@@ -20,14 +18,14 @@ public class ComfortCar extends Car{
 
     @Override
     public double discountedPrice() {
+        priceNew = price;
         long totalDay = (rentedDates.get(1).getTimeInMillis() - rentedDates.get(0).getTimeInMillis()) / 86400000;
         if(7 <= totalDay && totalDay < 30){
-            price = price * 0.96;
+            priceNew = priceNew * 0.96;
         } else if(totalDay >= 30 ){
-            price = price * 0.91;
+            priceNew = priceNew * 0.91;
         }
-        System.out.println(price);
-        return price;
+        return priceNew;
     }
 
     @Override

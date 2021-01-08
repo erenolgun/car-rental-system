@@ -399,27 +399,31 @@ jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
         Person person = new Person(name, surname, email, idNumber, birthdayDateConst, licenceDateConst, phone, email);
         
         String[] birthdayDate = jTextFieldBirthdayDate.getText().split("/");
-        String[] licenseDate = jTextFieldDriversLicenceDate.getText().split("/");
+        String[] licenceDate = jTextFieldDriversLicenceDate.getText().split("/");
         
         if(birthdayDate.length != 3){
             JOptionPane.showMessageDialog(this, "Please enter the correct birthday date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
-        } else if(licenseDate.length != 3){
+        } else if(licenceDate.length != 3){
             JOptionPane.showMessageDialog(this, "Please enter the correct licence date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
         } else {
             int birthdayDay = Integer.parseInt(birthdayDate[0]);
             int birthdayMonth = Integer.parseInt(birthdayDate[1]);
             int birthdayYear = Integer.parseInt(birthdayDate[2]);
             
-            int licenceDay = Integer.parseInt(licenseDate[0]);
-            int licenceMonth = Integer.parseInt(licenseDate[1]);
-            int licenceYear = Integer.parseInt(licenseDate[2]);
+            int licenceDay = Integer.parseInt(licenceDate[0]);
+            int licenceMonth = Integer.parseInt(licenceDate[1]);
+            int licenceYear = Integer.parseInt(licenceDate[2]);
             
             if(birthdayYear < 1000){
                 JOptionPane.showMessageDialog(this, "Please check the customer's birthday year.", "WARNING", JOptionPane.WARNING_MESSAGE);
             } else if (licenceYear < 1000){
                 JOptionPane.showMessageDialog(this, "Please check the customer's licence year.", "WARNING", JOptionPane.WARNING_MESSAGE);
             } else {
-                if(!name.equals("") && !surname.equals("") && !nationality.equals("") && !idNumber.equals("") && !phone.equals("") && !email.equals("")){
+                if(!SystemClass.isNumeric(jTextFieldIDNumber.getText())){
+                    JOptionPane.showMessageDialog(this, "Please enter a numeric value for ID number field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+                } else if(!SystemClass.isNumeric(jTextFieldPhone.getText())){
+                    JOptionPane.showMessageDialog(this, "Please enter a numeric value for phone field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+                }else if(!name.equals("") && !surname.equals("") && !nationality.equals("") && !idNumber.equals("") && !phone.equals("") && !email.equals("")){
                     if((currentDate.get(Calendar.YEAR) - licenceYear < 2) && (currentDate.get(Calendar.YEAR) - birthdayYear < 21)){
                         JOptionPane.showMessageDialog(this, "The age of the customer can not be less than 21 and the driver's license age can not be less than 2.", "WARNING", JOptionPane.WARNING_MESSAGE);
                     } else if(currentDate.get(Calendar.YEAR) - birthdayYear < 21){

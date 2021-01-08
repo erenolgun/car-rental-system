@@ -14,14 +14,15 @@ import java.util.GregorianCalendar;
  * @author ereno
  */
 public abstract class Car implements Price {
-    protected int carID;
+    private int carID;
     protected String carType;
-    protected String brand;
-    protected String model;
-    protected String fuelType;
-    protected String gearType;
-    protected int modelYear;
+    private String brand;
+    private String model;
+    private String fuelType;
+    private String gearType;
+    private int modelYear;
     protected double price;
+    protected double priceNew;
     public ArrayList<GregorianCalendar> rentedDates = new ArrayList<>();
     private boolean childSeat;
     private boolean navigationSystem;
@@ -43,7 +44,6 @@ public abstract class Car implements Price {
         this.price = price;
     }
     
-    //PRICE EKLENDİĞİNDE ESKİ HALİNE BAK
 
     public int getCarID() {
         return carID;
@@ -77,6 +77,10 @@ public abstract class Car implements Price {
         return price;
     }
 
+    public double getPriceNew() {
+        return priceNew;
+    }
+
     public void setCarID(int carID) {
         this.carID = carID;
     }
@@ -108,6 +112,12 @@ public abstract class Car implements Price {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public void setPriceNew(double priceNew) {
+        this.priceNew = priceNew;
+    }
+    
+    
 
     @Override
     public String toString() {

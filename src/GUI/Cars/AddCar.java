@@ -352,47 +352,65 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         String brand = jTextFieldBrand.getText();
         String model = jTextFieldModel.getText();
         String fuelType = jTextFieldFuelType.getText();
+        String gearType = "";
         if(jRadioButtonAuto.isSelected()){
-            String gearType = "Automatic";
+            gearType = "Automatic";
         }
         if(jRadioButtonManuel.isSelected()){
-            String gearType = "Manuel";
+            gearType = "Manuel";
         }
-        int modelYear = Integer.parseInt(jTextFieldModelYear.getText());
-        double price = Double.parseDouble(jTextFieldPrice.getText());
-        if(jComboBoxCarType.getSelectedItem().equals("Economic")){
-            EconomicCar economicCar = new EconomicCar(carID, brand, model, fuelType, fuelType, modelYear, price);
-            if(SystemClass.addCar(economicCar)){
-                JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE); 
-            } else {
-                JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
-            }
+        
+        if(!SystemClass.isNumeric(jTextFieldModelYear.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a numeric value for year field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if (!SystemClass.isNumeric(jTextFieldPrice.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a numeric value for price field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if(SystemClass.isNumeric(jTextFieldModelYear.getText()) && SystemClass.isNumeric(jTextFieldPrice.getText())){
+            int modelYear = Integer.parseInt(jTextFieldModelYear.getText());
+            double price = Double.parseDouble(jTextFieldPrice.getText());
             
-        } else if (jComboBoxCarType.getSelectedItem().equals("Comfort")){
-            ComfortCar comfortCar = new ComfortCar(carID, brand, model, fuelType, fuelType, modelYear, price);
-            if(SystemClass.addCar(comfortCar)){
-                JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE); 
+            if(!brand.equals("") && !model.equals("") && !fuelType.equals("") && !gearType.equals("") && !String.valueOf(modelYear).equals("") && !String.valueOf(price).equals("")){
+                if (jComboBoxCarType.getSelectedItem() == null){
+                    JOptionPane.showMessageDialog(this, "Please choose a car type.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+                } else if(jComboBoxCarType.getSelectedItem().equals("Economic")){
+                    EconomicCar economicCar = new EconomicCar(carID, brand, model, fuelType, fuelType, modelYear, price);
+                    if(SystemClass.addCar(economicCar)){
+                        JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE);
+                        DisplayCar displayCar = new DisplayCar();
+                        displayCar.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
+                    }
+                } else if (jComboBoxCarType.getSelectedItem().equals("Comfort")){
+                    ComfortCar comfortCar = new ComfortCar(carID, brand, model, fuelType, fuelType, modelYear, price);
+                    if(SystemClass.addCar(comfortCar)){
+                        JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE);
+                        DisplayCar displayCar = new DisplayCar();
+                        displayCar.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
+                    }
+                } else if (jComboBoxCarType.getSelectedItem().equals("Luxury")){
+                    LuxuryCar luxuryCar = new LuxuryCar(carID, brand, model, fuelType, fuelType, modelYear, price);
+                    if(SystemClass.addCar(luxuryCar)){
+                        JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE);
+                        DisplayCar displayCar = new DisplayCar();
+                        displayCar.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
+                    }
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
+                JOptionPane.showMessageDialog(this, "Please fill in all fields.", "WARNING", JOptionPane.WARNING_MESSAGE); 
             }
-        } else if (jComboBoxCarType.getSelectedItem().equals("Luxury")){
-            LuxuryCar luxuryCar = new LuxuryCar(carID, brand, model, fuelType, fuelType, modelYear, price);
-            if(SystemClass.addCar(luxuryCar)){
-                JOptionPane.showMessageDialog(this, "The car is added.", "SUCCESSFULL", JOptionPane.INFORMATION_MESSAGE); 
-            } else {
-                JOptionPane.showMessageDialog(this, "The car can not added.", "ERROR", JOptionPane.ERROR_MESSAGE); 
-            }
-        } else {
-            // COMBOBOX SEÇİLMEDİ HATASI
         }
         
-        for (Car car : SystemClass.cars) {
-            System.out.println(car);
-        }
         
-        DisplayCar displayCar = new DisplayCar();
-        displayCar.setVisible(true);
-        this.dispose();
+        
+        
+        
     }//GEN-LAST:event_jButtonAddCarActionPerformed
 
     private void jButtonCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarsActionPerformed

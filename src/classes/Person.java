@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * @author ereno
  */
 public class Person {
-    protected String name;
-    protected String surname;
-    protected String nationality;
-    protected String idNumber;
-    protected String birthdayDate;
-    protected String licenceDate;
-    protected String phone;
-    protected String mail;
+    private String name;
+    private String surname;
+    private String nationality;
+    private String idNumber;
+    private String birthdayDate;
+    private String licenceDate;
+    private String phone;
+    private String mail;
     public ArrayList<Car> rentedCars = new ArrayList<>();
 
     public Person(String name, String surname, String nationality, String idNumber, String birthdayDate, String licenceDate, String phone, String mail) {

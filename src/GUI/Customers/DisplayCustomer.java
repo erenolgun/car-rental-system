@@ -12,9 +12,12 @@ import classes.Person;
 import classes.SystemClass;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 /**
@@ -447,8 +450,6 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_jButtonRentCarActionPerformed
 
     private void jComboBoxIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDActionPerformed
-        System.out.println(jComboBoxID.getSelectedItem());
-        
         int position = SystemClass.searchPerson(jComboBoxID);
 
         jTextFieldName.setText(SystemClass.customers.get(position).getName());
@@ -476,7 +477,6 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         jTextFieldDriversLicenceDate.setText("");
         jTextFieldPhone.setText("");
         jTextFieldEmail.setText("");
-        
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
@@ -494,24 +494,65 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         int position = SystemClass.searchPerson(jComboBoxID);
         
-        SystemClass.customers.get(position).setName(jTextFieldName.getText());
-        SystemClass.customers.get(position).setSurname(jTextFieldSurname.getText());
-        SystemClass.customers.get(position).setNationality(jTextFieldNationality.getText());
-        SystemClass.customers.get(position).setIdNumber(jTextFieldIDNumber.getText());
-        SystemClass.customers.get(position).setBirthdayDate(jTextFieldBirthdayDate.getText());
-        SystemClass.customers.get(position).setLicenceDate(jTextFieldDriversLicenceDate.getText());
-        SystemClass.customers.get(position).setPhone(jTextFieldPhone.getText());
-        SystemClass.customers.get(position).setMail(jTextFieldEmail.getText());
+        GregorianCalendar currentDate = new GregorianCalendar();
         
-        jTextFieldName.setEnabled(false);
-        jTextFieldSurname.setEnabled(false);
-        jTextFieldNationality.setEnabled(false);
-        jTextFieldIDNumber.setEnabled(false);
-        jTextFieldBirthdayDate.setEnabled(false);
-        jTextFieldDriversLicenceDate.setEnabled(false);
-        jTextFieldPhone.setEnabled(false);
-        jTextFieldEmail.setEnabled(false);
-        jButtonSave.setEnabled(false);
+        String[] birthdayDate = jTextFieldBirthdayDate.getText().split("/");
+        String[] licenceDate = jTextFieldDriversLicenceDate.getText().split("/");
+        
+        if(birthdayDate.length != 3){
+            JOptionPane.showMessageDialog(this, "Please enter the correct birthday date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
+        } else if(licenceDate.length != 3){
+            JOptionPane.showMessageDialog(this, "Please enter the correct licence date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int birthdayDay = Integer.parseInt(birthdayDate[0]);
+            int birthdayMonth = Integer.parseInt(birthdayDate[1]);
+            int birthdayYear = Integer.parseInt(birthdayDate[2]);
+            
+            int licenceDay = Integer.parseInt(licenceDate[0]);
+            int licenceMonth = Integer.parseInt(licenceDate[1]);
+            int licenceYear = Integer.parseInt(licenceDate[2]);
+            
+            if(birthdayYear < 1000){
+                JOptionPane.showMessageDialog(this, "Please check the customer's birthday year.", "WARNING", JOptionPane.WARNING_MESSAGE);
+            } else if (licenceYear < 1000){
+                JOptionPane.showMessageDialog(this, "Please check the customer's licence year.", "WARNING", JOptionPane.WARNING_MESSAGE);
+            } else {
+                if(!SystemClass.isNumeric(jTextFieldIDNumber.getText())){
+                    JOptionPane.showMessageDialog(this, "Please enter a numeric value for ID number field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+                } else if(!SystemClass.isNumeric(jTextFieldPhone.getText())){
+                    JOptionPane.showMessageDialog(this, "Please enter a numeric value for phone field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+                }else if(!jTextFieldName.getText().equals("") && !jTextFieldSurname.getText().equals("") && !jTextFieldNationality.getText().equals("") && !jTextFieldIDNumber.getText().equals("") && !jTextFieldPhone.getText().equals("") && !jTextFieldEmail.getText().equals("")){
+                    if((currentDate.get(Calendar.YEAR) - licenceYear < 2) && (currentDate.get(Calendar.YEAR) - birthdayYear < 21)){
+                        JOptionPane.showMessageDialog(this, "The age of the customer can not be less than 21 and the driver's license age can not be less than 2.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                    } else if(currentDate.get(Calendar.YEAR) - birthdayYear < 21){
+                        JOptionPane.showMessageDialog(this, "The age of the customer can not be less than 21.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                    } else if((currentDate.get(Calendar.YEAR) - licenceYear < 2)){
+                        JOptionPane.showMessageDialog(this, "The driver's license age of the customer can not be less than 2.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        SystemClass.customers.get(position).setName(jTextFieldName.getText());
+                        SystemClass.customers.get(position).setSurname(jTextFieldSurname.getText());
+                        SystemClass.customers.get(position).setNationality(jTextFieldNationality.getText());
+                        SystemClass.customers.get(position).setIdNumber(jTextFieldIDNumber.getText());
+                        SystemClass.customers.get(position).setBirthdayDate(jTextFieldBirthdayDate.getText());
+                        SystemClass.customers.get(position).setLicenceDate(jTextFieldDriversLicenceDate.getText());
+                        SystemClass.customers.get(position).setPhone(jTextFieldPhone.getText());
+                        SystemClass.customers.get(position).setMail(jTextFieldEmail.getText());
+                        
+                        jTextFieldName.setEnabled(false);
+                        jTextFieldSurname.setEnabled(false);
+                        jTextFieldNationality.setEnabled(false);
+                        jTextFieldIDNumber.setEnabled(false);
+                        jTextFieldBirthdayDate.setEnabled(false);
+                        jTextFieldDriversLicenceDate.setEnabled(false);
+                        jTextFieldPhone.setEnabled(false);
+                        jTextFieldEmail.setEnabled(false);
+                        jButtonSave.setEnabled(false);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please fill in all fields.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed

@@ -9,9 +9,13 @@ import GUI.Cancel.Cancel;
 import GUI.Customers.DisplayCustomer;
 import GUI.RentingCar.RentingInformation;
 import classes.Car;
+import classes.ComfortCar;
+import classes.EconomicCar;
+import classes.LuxuryCar;
 import classes.SystemClass;
 import java.awt.Color;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 /**
@@ -492,24 +496,41 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         int position = SystemClass.searchCarByBrand(jComboBoxSearch);
         
-        // VİRGÜLLE YAZILAN FİYAT İÇİN TRY-CATCH YAZILACAK
-        
-        SystemClass.cars.get(position).setBrand(jTextFieldBrand.getText());
-        SystemClass.cars.get(position).setModel(jTextFieldModel.getText());
-        SystemClass.cars.get(position).setFuelType(jTextFieldFuelType.getText());
-        SystemClass.cars.get(position).setGearType(jTextFieldGearType.getText());
-        SystemClass.cars.get(position).setCarType((String) jComboBoxCarType.getSelectedItem());
-        SystemClass.cars.get(position).setModelYear(Integer.parseInt(jTextFieldModelYear.getText()));
-        SystemClass.cars.get(position).setPrice(Double.parseDouble(jTextFieldPrice.getText()));
-        
-        jTextFieldBrand.setEnabled(false);
-        jTextFieldModel.setEnabled(false);
-        jTextFieldFuelType.setEnabled(false);
-        jTextFieldGearType.setEnabled(false);
-        jComboBoxCarType.setEnabled(false);
-        jTextFieldModelYear.setEnabled(false);
-        jTextFieldPrice.setEnabled(false);
-        jButtonSave.setEnabled(false);
+        if(!SystemClass.isNumeric(jTextFieldModelYear.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a numeric value for year field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if (!SystemClass.isNumeric(jTextFieldPrice.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter a numeric value for price field.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if(SystemClass.isNumeric(jTextFieldModelYear.getText()) && SystemClass.isNumeric(jTextFieldPrice.getText())){
+            int modelYear = Integer.parseInt(jTextFieldModelYear.getText());
+            double price = Double.parseDouble(jTextFieldPrice.getText());
+            
+            if(!jTextFieldBrand.getText().equals("") && !jTextFieldModel.getText().equals("") && !jTextFieldFuelType.getText().equals("") && !jTextFieldGearType.getText().equals("") && !String.valueOf(jTextFieldModelYear.getText()).equals("") && !String.valueOf(jTextFieldPrice.getText()).equals("")){
+                if (jComboBoxCarType.getSelectedItem() == null){
+                    JOptionPane.showMessageDialog(this, "Please choose a car type.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+                } else {
+                    SystemClass.cars.get(position).setBrand(jTextFieldBrand.getText());
+                    SystemClass.cars.get(position).setModel(jTextFieldModel.getText());
+                    SystemClass.cars.get(position).setFuelType(jTextFieldFuelType.getText());
+                    SystemClass.cars.get(position).setGearType(jTextFieldGearType.getText());
+                    SystemClass.cars.get(position).setCarType((String) jComboBoxCarType.getSelectedItem());
+                    SystemClass.cars.get(position).setModelYear(Integer.parseInt(jTextFieldModelYear.getText()));
+                    SystemClass.cars.get(position).setPrice(Double.parseDouble(jTextFieldPrice.getText()));
+                    
+                    jTextFieldBrand.setEnabled(false);
+                    jTextFieldModel.setEnabled(false);
+                    jTextFieldFuelType.setEnabled(false);
+                    jTextFieldGearType.setEnabled(false);
+                    jComboBoxCarType.setEnabled(false);
+                    jTextFieldModelYear.setEnabled(false);
+                    jTextFieldPrice.setEnabled(false);
+                    jButtonSave.setEnabled(false);
+                    
+                    JOptionPane.showMessageDialog(this, "Car information is updated.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE); 
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please fill in all fields.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+            }
+        }
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed

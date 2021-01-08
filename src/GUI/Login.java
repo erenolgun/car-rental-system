@@ -154,7 +154,7 @@ jPanelLoginLayout.setHorizontalGroup(
         String username = jTextFieldUsername.getText();
         String password = jPasswordField1.getText();
         
-        if(username.equals("admin") && password.equals("admin")){
+        /*if(username.equals("admin") && password.equals("admin")){
             RentingInformation RentingInformation = new RentingInformation();
             RentingInformation.setVisible(true);
             this.dispose();
@@ -164,7 +164,10 @@ jPanelLoginLayout.setHorizontalGroup(
             JOptionPane.showMessageDialog(this, "Please enter a password.", "WARNING", JOptionPane.WARNING_MESSAGE); 
         } else {
             JOptionPane.showMessageDialog(this, "Username or password is not correct.", "ERROR", JOptionPane.ERROR_MESSAGE); 
-        }
+        }*/
+        RentingInformation RentingInformation = new RentingInformation();
+            RentingInformation.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**

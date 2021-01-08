@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import sun.util.BuddhistCalendar;
 
@@ -226,65 +227,66 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
     });
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-    jLabel1.setText("*The date input format have to be like DD/MM/YYYY. Please enter 0 to beginning of the months that have one digit.");
+    jLabel1.setText("*The date input format have to be like DD/MM/YYYY. Please enter 0 to beginning of the months and days that have one digit.");
 
     javax.swing.GroupLayout jPanelRentCarLayout = new javax.swing.GroupLayout(jPanelRentCar);
     jPanelRentCar.setLayout(jPanelRentCarLayout);
     jPanelRentCarLayout.setHorizontalGroup(
         jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRentCarLayout.createSequentialGroup()
-            .addGap(53, 53, 53)
-            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(jButtonNextPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelRentCarLayout.createSequentialGroup()
-                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelRentCarLayout.createSequentialGroup()
-                            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelPhone))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelEmail)
-                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBoxCustomer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelCustomerID)
-                            .addComponent(jLabelCustomerInfo)
-                            .addGroup(jPanelRentCarLayout.createSequentialGroup()
-                                .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelName))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelSurname)
-                                    .addComponent(jTextFieldSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelRentCarLayout.createSequentialGroup()
-                            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldPickupDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelPickupDate))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelReturnDate)
-                                .addComponent(jTextFieldReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBoxCar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelCarID)
-                            .addComponent(jLabelCarInfo)
-                            .addGroup(jPanelRentCarLayout.createSequentialGroup()
-                                .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelBrand))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelModel)
-                                    .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-            .addGap(48, 48, 48))
         .addGroup(jPanelRentCarLayout.createSequentialGroup()
-            .addGap(78, 78, 78)
-            .addComponent(jLabel1)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(53, 53, 53)
+            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                    .addComponent(jLabel1)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonNextPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelPhone))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelEmail)
+                                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBoxCustomer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelCustomerID)
+                                    .addComponent(jLabelCustomerInfo)
+                                    .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                                        .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelName))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelSurname)
+                                            .addComponent(jTextFieldSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                            .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldPickupDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelPickupDate))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelReturnDate)
+                                        .addComponent(jTextFieldReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBoxCar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelCarID)
+                                    .addComponent(jLabelCarInfo)
+                                    .addGroup(jPanelRentCarLayout.createSequentialGroup()
+                                        .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelBrand))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelModel)
+                                            .addComponent(jTextFieldModel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGap(48, 48, 48))))
     );
     jPanelRentCarLayout.setVerticalGroup(
         jPanelRentCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,45 +433,71 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
     }//GEN-LAST:event_jButtonCarsActionPerformed
 
     private void jButtonNextPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextPageActionPerformed
-        // BOŞ BIRAKILIP NEXTE BASILINCA HATA OLUYOR, TRY-CATCH YAPILACAK
-        GregorianCalendar pickupDate = SystemClass.setCalendar(jTextFieldPickupDate.getText());
-        GregorianCalendar returnDate = SystemClass.setCalendar(jTextFieldReturnDate.getText());
-        GregorianCalendar currentDate = new GregorianCalendar();
-        
-        int customerPosition = SystemClass.searchPerson(jComboBoxCustomer);
-        int carPosition = SystemClass.searchCarByID(jComboBoxCar);
-        
-        if(pickupDate.compareTo(currentDate) >= 0){
-            if(SystemClass.cars.get(carPosition).rentedDates.isEmpty()){
-                SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
-                SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
-                SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
-                //System.out.println("deneme1");
-                if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
-                        //System.out.println("başarılı");
-                    }
+        if(jComboBoxCar.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(this, "Please select a car from the options.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if(jComboBoxCustomer.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(this, "Please select a customer from the options.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if(jComboBoxCar.getSelectedItem() != null && jComboBoxCustomer.getSelectedItem() != null){
+            String[] checkPickupDate = jTextFieldPickupDate.getText().split("/");
+            String[] checkReturnDate = jTextFieldReturnDate.getText().split("/");
+
+            if(checkPickupDate.length != 3){
+                JOptionPane.showMessageDialog(this, "Please enter the correct pickup date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
+            } else if(checkReturnDate.length != 3){
+                JOptionPane.showMessageDialog(this, "Please enter the correct return date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
             } else {
-                if(SystemClass.isAvailable(pickupDate, carPosition)){
-                    SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
-                    SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
-                    SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
-                    SystemClass.cars.get(carPosition).setPrice(SystemClass.cars.get(carPosition).discountedPrice());                   
+
+                int pickupYear = Integer.parseInt(checkPickupDate[2]);            
+                int returnYear = Integer.parseInt(checkReturnDate[2]);
+
+                if(pickupYear < 1000){
+                    JOptionPane.showMessageDialog(this, "Please check the customer's birthday year.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                } else if (returnYear < 1000){
+                    JOptionPane.showMessageDialog(this, "Please check the customer's licence year.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                } 
+
+                GregorianCalendar pickupDate = SystemClass.setCalendar(jTextFieldPickupDate.getText());
+                GregorianCalendar returnDate = SystemClass.setCalendar(jTextFieldReturnDate.getText());
+                GregorianCalendar currentDate = new GregorianCalendar();
+
+                int customerPosition = SystemClass.searchPerson(jComboBoxCustomer);
+                int carPosition = SystemClass.searchCarByID(jComboBoxCar);
+
+                if(SystemClass.customers.get(customerPosition).rentedCars.isEmpty()){
+                    if(pickupDate.compareTo(currentDate) >= 0){
+                        if(SystemClass.cars.get(carPosition).rentedDates.isEmpty()){
+                            SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
+                            SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
+                            SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+                            if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
+                                    //new frame
+                                    RentingExtras rentingExtras = new RentingExtras();
+                                    rentingExtras.setVisible(true);
+                                    this.dispose();
+                            }
+                        } else {
+                            if(SystemClass.isAvailable(pickupDate, carPosition)){
+                                SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
+                                SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
+                                SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+                                SystemClass.cars.get(carPosition).setPriceNew(SystemClass.cars.get(carPosition).discountedPrice());
+                                //new frame
+                                RentingExtras rentingExtras = new RentingExtras();
+                                rentingExtras.setVisible(true);
+                                this.dispose();
+                            } else {
+                                JOptionPane.showMessageDialog(this, "The car is not available on these dates.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "The dates you entered are past.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
-                    // ARABA UYGUN DEĞİL HATASI VERECEK
-                    System.out.println("araba uygun değil.");
+                    // zaten arabası var
+                    JOptionPane.showMessageDialog(this, "When the customer has a rented car, can not rent a new car.", "WARNING", JOptionPane.WARNING_MESSAGE); 
                 }
             }
-        } else {
-            // GEÇMİŞ TARİH HATASI
-            System.out.println("tarih geçmiş");
-            
         }
-        
-        
-
-        RentingExtras rentingExtras = new RentingExtras();
-        rentingExtras.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButtonNextPageActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed

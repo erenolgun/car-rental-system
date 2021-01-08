@@ -10,7 +10,6 @@ import GUI.Cars.DisplayCar;
 import GUI.Customers.DisplayCustomer;
 import classes.Person;
 import classes.SystemClass;
-import java.text.DecimalFormat;
 
 /**
  *
@@ -816,6 +815,7 @@ public class RentingExtras extends javax.swing.JFrame {
         double discountedPrice = SystemClass.rentedCar.get(0).discountedPrice();
         
         jTextFieldTotalPrice.setText(String.valueOf(Math.round(discountedPrice)));
+
         //jTextFieldTotalPrice.setText(String.valueOf(formattedPrice.format(discountedPrice)));
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
@@ -824,12 +824,14 @@ public class RentingExtras extends javax.swing.JFrame {
         
         for (Person customer : SystemClass.customers) {
             if(SystemClass.rentedCustomer.get(0).equals(customer)){
-                customer.rentedCars.get(0).setPrice(totalPrice);
+                customer.rentedCars.get(0).setPriceNew(totalPrice);
             }
         }
         
         SystemClass.rentedCar.clear();
         SystemClass.rentedCustomer.clear();
+        
+
         
         RentingInformation RentingInformation = new RentingInformation();
         RentingInformation.setVisible(true);

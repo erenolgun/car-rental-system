@@ -406,7 +406,7 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
         jTextFieldID.setText(SystemClass.customers.get(position).getIdNumber());
         jTextFieldBrand.setText(SystemClass.customers.get(position).rentedCars.get(0).getBrand());
         jTextFieldModel.setText(SystemClass.customers.get(position).rentedCars.get(0).getModel());
-        jTextFieldPrice.setText(String.valueOf(SystemClass.customers.get(position).rentedCars.get(0).getPrice()));    
+        jTextFieldPrice.setText(String.valueOf(SystemClass.customers.get(position).rentedCars.get(0).getPriceNew()));    
     }//GEN-LAST:event_jComboBoxSearchActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
