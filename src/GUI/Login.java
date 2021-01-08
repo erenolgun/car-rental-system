@@ -7,6 +7,7 @@
 package GUI;
 
 import GUI.RentingCar.RentingInformation;
+import classes.ComfortCar;
 import classes.EconomicCar;
 import classes.LuxuryCar;
 import classes.Person;
@@ -14,6 +15,7 @@ import classes.SystemClass;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -21,13 +23,10 @@ import java.awt.Color;
  * @author ereno
  */
 public class Login extends javax.swing.JFrame {
-    
-    //ImageIcon background = new ImageIcon(getClass().getResource("/assets/loginBackground.png"));
 
     /** Creates new form Login */
     public Login() {
         initComponents();
-       // jLabelBackground.setIcon(background);
     }
 
     /** This method is called from within the constructor to
@@ -155,18 +154,17 @@ jPanelLoginLayout.setHorizontalGroup(
         String username = jTextFieldUsername.getText();
         String password = jPasswordField1.getText();
         
-        /*if(username.equals("admin") && password.equals("admin")){
+        if(username.equals("admin") && password.equals("admin")){
             RentingInformation RentingInformation = new RentingInformation();
             RentingInformation.setVisible(true);
             this.dispose();
+        } else if(username.equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter an username.", "WARNING", JOptionPane.WARNING_MESSAGE); 
+        } else if(password.equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter a password.", "WARNING", JOptionPane.WARNING_MESSAGE); 
         } else {
-            System.out.println("YANLIŞ ŞİFREE");
-        }*/
-        RentingInformation RentingInformation = new RentingInformation();
-            RentingInformation.setVisible(true);
-            this.dispose();
-        //BAŞKA FRAME AÇIP, EKRANDA OLAN FRAME'İ KAPAMA
-        
+            JOptionPane.showMessageDialog(this, "Username or password is not correct.", "ERROR", JOptionPane.ERROR_MESSAGE); 
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
@@ -202,17 +200,25 @@ jPanelLoginLayout.setHorizontalGroup(
                 Login Login = new Login();
                 Login.setVisible(true);
                 
-                Person person1 = new Person("Eren", "Olgun", "T.C.", "123456789", "11/11/1999", "11/11/1999", "123456", "eren@hotmail.com");
-                Person person2 = new Person("Kağan", "Bildirici", "T.C", "12456", "11/11/1999", "11/11/1999", "02154", "kağan@gmail.com");
+                Person erenOlgun = new Person("Eren", "Olgun", "T.C.", "25474284635", "05/07/1995", "24/03/2017", "5300482634", "erenolgun@hotmail.com");
+                Person kaganBildirici = new Person("Kağan", "Bildirici", "T.C", "16975325846", "03/12/1998", "16/07/2016", "5346524586", "kaganbildirici@gmail.com");
                 
-                SystemClass.customers.add(person1);
-                SystemClass.customers.add(person2);
+                SystemClass.customers.add(erenOlgun);
+                SystemClass.customers.add(kaganBildirici);
                 
-                EconomicCar economicCar = new EconomicCar(78975, "Fiat", "Egea", "Fuel", "Automatic", 2014, 123);
-                LuxuryCar luxuryCar = new LuxuryCar(979, "Ford", "Focus", "Diesel", "Manuel", 2004, 651);
+                EconomicCar renaultSymbol = new EconomicCar(1, "Renault", "Symbol", "Gasoline", "Manuel", 2017, 137);
+                EconomicCar hyundaiI20 = new EconomicCar(2, "Hyundai", "i20", "Diesel", "Automatic", 2018, 140);
+                ComfortCar toyotaCorolla = new ComfortCar(3, "Toyota", "Corolla", "Fuel", "Automatic", 2018, 190);
+                ComfortCar nissanQashqai = new ComfortCar(4, "Nissan", "Qashqai", "Diesel", "Automatic", 2019, 240);
+                LuxuryCar audiA3 = new LuxuryCar(5, "Audi", "A3", "Gasoline", "Automatic", 2019, 392.48);
+                LuxuryCar mercedesC200d = new LuxuryCar(6, "Mercedes-Benz", "C 200 d", "Fuel", "Automatic", 2020, 597.70);
                
-                SystemClass.cars.add(luxuryCar);
-                SystemClass.cars.add(economicCar);
+                SystemClass.cars.add(renaultSymbol);
+                SystemClass.cars.add(hyundaiI20);
+                SystemClass.cars.add(toyotaCorolla);
+                SystemClass.cars.add(nissanQashqai);
+                SystemClass.cars.add(audiA3);
+                SystemClass.cars.add(mercedesC200d);
 
                 
             }

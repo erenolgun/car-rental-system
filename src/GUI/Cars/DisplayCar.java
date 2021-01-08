@@ -65,7 +65,9 @@ public class DisplayCar extends javax.swing.JFrame {
         jTextFieldPrice = new javax.swing.JTextField();
         jButtonEdit = new javax.swing.JButton();
         jButtonSave = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
         jComboBoxCarType = new javax.swing.JComboBox<>();
+        jLabelTL = new javax.swing.JLabel();
         jButtonUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,7 +141,7 @@ public class DisplayCar extends javax.swing.JFrame {
         });
 
         jLabelCars.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
-        jLabelCars.setText("Cars");
+        jLabelCars.setText("Please update the page.");
 
         jPanelCars.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCars.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -226,8 +228,22 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         }
     });
 
+    jButtonDelete.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonDelete.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+    jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
+    jButtonDelete.setText("DELETE CAR");
+    jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonDeleteActionPerformed(evt);
+        }
+    });
+
     jComboBoxCarType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economic", "Comfort", "Luxury" }));
     jComboBoxCarType.setSelectedIndex(-1);
+
+    jLabelTL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabelTL.setText("₺/day");
+    jLabelTL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
     javax.swing.GroupLayout jPanelCarsLayout = new javax.swing.GroupLayout(jPanelCars);
     jPanelCars.setLayout(jPanelCarsLayout);
@@ -254,13 +270,11 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                         .addComponent(jTextFieldModelYear, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(110, 110, 110)
                     .addGroup(jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelPrice)))
-                .addGroup(jPanelCarsLayout.createSequentialGroup()
-                    .addGap(66, 66, 66)
-                    .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelPrice)
+                        .addGroup(jPanelCarsLayout.createSequentialGroup()
+                            .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelTL))))
                 .addGroup(jPanelCarsLayout.createSequentialGroup()
                     .addGroup(jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jLabelCarID, javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,6 +288,14 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                         .addComponent(jLabelFuelType)
                         .addComponent(jLabelBrand))))
             .addContainerGap(116, Short.MAX_VALUE))
+        .addGroup(jPanelCarsLayout.createSequentialGroup()
+            .addGap(94, 94, 94)
+            .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(99, Short.MAX_VALUE))
     );
     jPanelCarsLayout.setVerticalGroup(
         jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,11 +335,13 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jTextFieldModelYear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelTL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(27, 27, 27)
             .addGroup(jPanelCarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(27, 27, 27))
     );
 
@@ -385,7 +409,7 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                 .addComponent(jButtonAddNewCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanelCars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(27, Short.MAX_VALUE))
+            .addContainerGap(25, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -430,7 +454,7 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         for (Car car : SystemClass.cars) {
             jComboBoxSearch.insertItemAt(car.getBrand() + " " + car.getModel() + " (" + car.getModelYear() + ")", 0);
         }
-        
+        jLabelCars.setText("Cars");
         jTextFieldCarID.setText("");
         jTextFieldBrand.setText("");
         jTextFieldModel.setText("");
@@ -442,15 +466,13 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jComboBoxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSearchActionPerformed
-        System.out.println(jComboBoxSearch.getSelectedItem());
-        
         int position = SystemClass.searchCarByBrand(jComboBoxSearch);
         
         jTextFieldCarID.setText(String.valueOf(SystemClass.cars.get(position).getCarID()));
         jTextFieldBrand.setText(SystemClass.cars.get(position).getBrand());
         jTextFieldModel.setText(SystemClass.cars.get(position).getModel());
         jTextFieldFuelType.setText(SystemClass.cars.get(position).getFuelType());
-        jTextFieldGearType.setText(SystemClass.cars.get(position).getFuelType());
+        jTextFieldGearType.setText(SystemClass.cars.get(position).getGearType());
         jComboBoxCarType.setSelectedItem(SystemClass.cars.get(position).getCarType());
         jTextFieldModelYear.setText(String.valueOf(SystemClass.cars.get(position).getModelYear()));
         jTextFieldPrice.setText(String.valueOf(SystemClass.cars.get(position).getPrice()));
@@ -496,6 +518,21 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
         this.dispose();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        int position = SystemClass.searchCarByBrand(jComboBoxSearch);
+        SystemClass.removeCar(SystemClass.cars.get(position));
+        
+        jComboBoxSearch.setSelectedItem(null);
+        jTextFieldCarID.setText("");
+        jTextFieldBrand.setText("");
+        jTextFieldModel.setText("");
+        jTextFieldFuelType.setText("");
+        jTextFieldGearType.setText("");
+        jComboBoxCarType.setSelectedIndex(-1);
+        jTextFieldModelYear.setText("");
+        jTextFieldPrice.setText("");
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -536,6 +573,7 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonCars;
     private javax.swing.JButton jButtonCustomers;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonRentCar;
     private javax.swing.JButton jButtonSave;
@@ -553,6 +591,7 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
     private javax.swing.JLabel jLabelModelYear;
     private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelSearch;
+    private javax.swing.JLabel jLabelTL;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCars;
     private javax.swing.JPanel jPanelImportant;

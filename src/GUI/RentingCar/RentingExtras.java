@@ -283,7 +283,7 @@ public class RentingExtras extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jLabel1.setText("₺");
+        jLabel1.setText("₺/day");
 
         javax.swing.GroupLayout jPanelExtrasLayout = new javax.swing.GroupLayout(jPanelExtras);
         jPanelExtras.setLayout(jPanelExtrasLayout);
@@ -338,9 +338,9 @@ public class RentingExtras extends javax.swing.JFrame {
                                     .addGroup(jPanelExtrasLayout.createSequentialGroup()
                                         .addComponent(jLabelTotalPrice)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(jTextFieldTotalPrice)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel1)))
                                 .addGap(46, 46, 46))))))
         );
         jPanelExtrasLayout.setVerticalGroup(

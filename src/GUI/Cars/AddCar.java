@@ -178,8 +178,8 @@ jLabelPrice.setText("Price");
 jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
     BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
-    jLabelTL.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-    jLabelTL.setText("TL");
+    jLabelTL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabelTL.setText("₺/day");
     jLabelTL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
     jButtonAddCar.setBackground(new java.awt.Color(0, 0, 0));
@@ -228,11 +228,11 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                     .addComponent(jLabelCarType)
                     .addComponent(jComboBoxCarType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanelNewCarLayout.createSequentialGroup()
-                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabelTL, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabelTL))
                 .addComponent(jLabelPrice))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
             .addGroup(jPanelNewCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelNewCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -281,15 +281,13 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jTextFieldModelYear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(18, 18, 18)
-            .addGroup(jPanelNewCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelNewCarLayout.createSequentialGroup()
-                    .addComponent(jLabelPrice)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNewCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addContainerGap(39, Short.MAX_VALUE))
+            .addComponent(jLabelPrice)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanelNewCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelTL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAddCar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(30, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -308,14 +306,14 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
             .addComponent(jButtonCars)
             .addGap(31, 31, 31))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-            .addContainerGap(231, Short.MAX_VALUE)
+            .addContainerGap(240, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanelNewCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(220, 220, 220))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addComponent(jLabelNewCar)
-                    .addGap(447, 447, 447))))
+                    .addGap(447, 447, 447))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addComponent(jPanelNewCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(211, 211, 211))))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,11 +325,11 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                 .addComponent(jButtonCustomers)
                 .addComponent(jButtonCancel)
                 .addComponent(jButtonRentCar))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
             .addComponent(jLabelNewCar)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGap(27, 27, 27)
             .addComponent(jPanelNewCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(82, 82, 82))
+            .addGap(75, 75, 75))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

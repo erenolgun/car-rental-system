@@ -20,7 +20,7 @@ public class SystemClass {
     public static ArrayList<Car> cars = new ArrayList<>();
     public static ArrayList<Car> rentedCar = new ArrayList<>();
     public static ArrayList<Person> rentedCustomer = new ArrayList<>();
-    public static int id = 1;
+    public static int id = 7;
     
     
     
@@ -37,17 +37,24 @@ public class SystemClass {
         return isAdded;
     }
     
-    /*public static boolean removePerson(Person p){
+    public static boolean removePerson(Person p){
         boolean isRemoved = false;
         isRemoved = customers.remove(p);
         return isRemoved;
-    }*/
+    }
     
     public static boolean addCar(Car c){
         boolean isAdded = false;
         isAdded = cars.add(c);
         id++;  
         return isAdded;
+    }
+    
+    public static boolean removeCar(Car c){
+        boolean isRemoved = false;
+        isRemoved = cars.remove(c);
+        id--;
+        return isRemoved;
     }
     
     public static boolean addRentedCar(Car c){

@@ -59,7 +59,8 @@ public class Cancel extends javax.swing.JFrame {
         jLabelPrice = new javax.swing.JLabel();
         jTextFieldPrice = new javax.swing.JTextField();
         jButtonCancel = new javax.swing.JButton();
-        jLabelCustomers = new javax.swing.JLabel();
+        jLabelTL = new javax.swing.JLabel();
+        jLabelCancel = new javax.swing.JLabel();
         jButtonUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,8 +87,10 @@ public class Cancel extends javax.swing.JFrame {
             .addComponent(jLabelImportant2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
         );
 
+        jButtonRentCar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonRentCar.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonRentCar.setText("Rent a Car");
+        jButtonRentCar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButtonRentCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRentCarActionPerformed(evt);
@@ -98,17 +101,22 @@ public class Cancel extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cancel the Reservation");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        jButtonCustomers.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonCustomers.setText("Customers");
+        jButtonCustomers.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButtonCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCustomersActionPerformed(evt);
             }
         });
 
+        jButtonCars.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCars.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonCars.setText("Cars");
+        jButtonCars.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButtonCars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCarsActionPerformed(evt);
@@ -175,6 +183,10 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
     }
     });
 
+    jLabelTL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabelTL.setText("₺/day");
+    jLabelTL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
     javax.swing.GroupLayout jPanelCustomersLayout = new javax.swing.GroupLayout(jPanelCustomers);
     jPanelCustomers.setLayout(jPanelCustomersLayout);
     jPanelCustomersLayout.setHorizontalGroup(
@@ -190,7 +202,7 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
                             .addComponent(jComboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelCustomersLayout.createSequentialGroup()
                             .addGap(27, 27, 27)
-                            .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanelCustomersLayout.createSequentialGroup()
                                     .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabelBrand)
@@ -198,7 +210,10 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
                                     .addGap(90, 90, 90)
                                     .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabelPrice)
-                                        .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanelCustomersLayout.createSequentialGroup()
+                                            .addComponent(jTextFieldPrice)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabelTL))))
                                 .addGroup(jPanelCustomersLayout.createSequentialGroup()
                                     .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabelSurname)
@@ -256,14 +271,23 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
                 .addGroup(jPanelCustomersLayout.createSequentialGroup()
                     .addComponent(jLabelPrice)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGap(18, 18, 18)
             .addComponent(jButtonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGap(24, 24, 24))
     );
 
-    jLabelCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
-    jLabelCustomers.setText("Cancel Reservation");
+    jTextFieldID.setEnabled(false);
+    jTextFieldName.setEnabled(false);
+    jTextFieldSurname.setEnabled(false);
+    jTextFieldModel.setEnabled(false);
+    jTextFieldBrand.setEnabled(false);
+    jTextFieldPrice.setEnabled(false);
+
+    jLabelCancel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
+    jLabelCancel.setText("Please update the page.");
 
     jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
     jButtonUpdate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -284,23 +308,21 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
             .addGap(25, 25, 25)
             .addComponent(jButtonRentCar)
             .addGap(29, 29, 29)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButtonCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButtonCars)
+            .addGap(32, 32, 32))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCancel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jButtonCars))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabelCustomers)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanelCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(143, 143, 143)))
-            .addContainerGap())
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanelCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(151, 151, 151))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,19 +330,19 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jPanelImportant2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButtonRentCar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButtonCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButtonCars, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(74, 74, 74)
+                .addComponent(jButtonRentCar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonCars, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(61, 61, 61)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(4, 4, 4))
-                .addComponent(jLabelCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addComponent(jLabelCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jPanelCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(52, 52, 52))
+            .addGap(65, 65, 65))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -360,9 +382,11 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
        jComboBoxSearch.removeAllItems();
         for (Person customer : SystemClass.customers) {
             if(!customer.rentedCars.isEmpty()){
-                jComboBoxSearch.insertItemAt(customer.getName(), 0);
+                jComboBoxSearch.insertItemAt(customer.getIdNumber() + " " + customer.rentedCars.get(0).getBrand() + " " + customer.rentedCars.get(0).getModel(), 0);
             }
         }
+        
+        jLabelCancel.setText("Cancel Reservation");
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jComboBoxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSearchActionPerformed
@@ -370,7 +394,7 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
         int i = 0;
         for (Person customer : SystemClass.customers) {
             if(!customer.rentedCars.isEmpty()){
-                if(jComboBoxSearch.getSelectedItem().equals(customer.getName())){
+                if(jComboBoxSearch.getSelectedItem().equals(customer.getIdNumber() + " " + customer.rentedCars.get(0).getBrand() + " " + customer.rentedCars.get(0).getModel())){
                     position = i;
                 }
             }
@@ -443,7 +467,7 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JComboBox<String> jComboBoxSearch;
     private javax.swing.JLabel jLabelBrand;
-    private javax.swing.JLabel jLabelCustomers;
+    private javax.swing.JLabel jLabelCancel;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelImportant2;
     private javax.swing.JLabel jLabelModel;
@@ -451,6 +475,7 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelSearch;
     private javax.swing.JLabel jLabelSurname;
+    private javax.swing.JLabel jLabelTL;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCustomers;
     private javax.swing.JPanel jPanelImportant2;

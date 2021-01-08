@@ -69,6 +69,7 @@ public class DisplayCustomer extends javax.swing.JFrame {
         jTextFieldEmail = new javax.swing.JTextField();
         jButtonEdit = new javax.swing.JButton();
         jButtonSave = new javax.swing.JButton();
+        jButtonEdit1 = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,7 +133,7 @@ public class DisplayCustomer extends javax.swing.JFrame {
         );
 
         jLabelCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
-        jLabelCustomers.setText("Customers");
+        jLabelCustomers.setText("Please update the page.");
 
         jButtonAddNewCustomer.setBackground(new java.awt.Color(0, 0, 0));
         jButtonAddNewCustomer.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
@@ -232,6 +233,16 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         }
     });
 
+    jButtonEdit1.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonEdit1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+    jButtonEdit1.setForeground(new java.awt.Color(255, 255, 255));
+    jButtonEdit1.setText("DELETE CUSTOMER");
+    jButtonEdit1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButtonEdit1ActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jPanelCustomersLayout = new javax.swing.GroupLayout(jPanelCustomers);
     jPanelCustomers.setLayout(jPanelCustomersLayout);
     jPanelCustomersLayout.setHorizontalGroup(
@@ -260,11 +271,6 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelEmail)))
                 .addGroup(jPanelCustomersLayout.createSequentialGroup()
-                    .addGap(66, 66, 66)
-                    .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelCustomersLayout.createSequentialGroup()
                     .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabelNationality)
                         .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,6 +286,14 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(jTextFieldSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextFieldIDNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addContainerGap(116, Short.MAX_VALUE))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCustomersLayout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButtonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(97, 97, 97))
     );
     jPanelCustomersLayout.setVerticalGroup(
         jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +337,8 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             .addGap(27, 27, 27)
             .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jButtonEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(27, 27, 27))
     );
 
@@ -452,6 +467,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             jComboBoxID.insertItemAt(customer.getIdNumber(), 0);
         }    
         
+        jLabelCustomers.setText("Customers");
         jTextFieldName.setText("");
         jTextFieldSurname.setText("");
         jTextFieldNationality.setText("");
@@ -504,6 +520,21 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         this.dispose();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
+    private void jButtonEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdit1ActionPerformed
+        int position = SystemClass.searchPerson(jComboBoxID);
+        SystemClass.removePerson(SystemClass.customers.get(position));
+        
+        jComboBoxID.setSelectedIndex(-1);
+        jTextFieldName.setText("");
+        jTextFieldSurname.setText("");
+        jTextFieldNationality.setText("");
+        jTextFieldIDNumber.setText("");
+        jTextFieldBirthdayDate.setText("");
+        jTextFieldDriversLicenceDate.setText("");
+        jTextFieldPhone.setText("");
+        jTextFieldEmail.setText("");
+    }//GEN-LAST:event_jButtonEdit1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -545,6 +576,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JButton jButtonCars;
     private javax.swing.JButton jButtonCustomers;
     private javax.swing.JButton jButtonEdit;
+    private javax.swing.JButton jButtonEdit1;
     private javax.swing.JButton jButtonRentCar;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonUpdate;

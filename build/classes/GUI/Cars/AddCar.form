@@ -61,15 +61,15 @@
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="231" max="32767" attributes="0"/>
+                  <EmptySpace pref="240" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jPanelNewCar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabelNewCar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jPanelNewCar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -86,11 +86,11 @@
                       <Component id="jButtonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRentCar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="76" max="32767" attributes="0"/>
+                  <EmptySpace pref="74" max="32767" attributes="0"/>
                   <Component id="jLabelNewCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jPanelNewCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -251,13 +251,13 @@
                               <Component id="jComboBoxCarType" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextFieldPrice" min="-2" pref="168" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelTL" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPrice" min="-2" pref="141" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabelTL" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabelPrice" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <EmptySpace pref="87" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButtonAddCar" min="-2" pref="190" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -322,18 +322,14 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelPrice" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldPrice" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="jLabelTL" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="jButtonAddCar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
+                      <Component id="jLabelPrice" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldPrice" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jLabelTL" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jButtonAddCar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -451,9 +447,9 @@
             <Component class="javax.swing.JLabel" name="jLabelTL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft JhengHei" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TL"/>
+                <Property name="text" type="java.lang.String" value="&#x20ba;/day"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>

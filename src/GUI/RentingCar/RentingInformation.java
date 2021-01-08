@@ -137,7 +137,7 @@ public class RentingInformation extends javax.swing.JFrame {
         );
 
         jLabelRentCar.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
-        jLabelRentCar.setText("Rent a Car");
+        jLabelRentCar.setText("Please update the page.");
 
         jPanelRentCar.setBackground(new java.awt.Color(255, 255, 255));
         jPanelRentCar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -484,6 +484,7 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
             jComboBoxCar.insertItemAt(String.valueOf(car.getCarID()), 0);
         }
         
+        jLabelRentCar.setText("Rent a Car");
         jComboBoxCustomer.setSelectedIndex(-1);
         jTextFieldName.setText("");
         jTextFieldSurname.setText("");

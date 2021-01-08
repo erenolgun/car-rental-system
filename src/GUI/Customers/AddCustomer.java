@@ -18,6 +18,7 @@ import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import GUI.Customers.DisplayCustomer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -380,11 +381,12 @@ jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
     private void jButtonAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomerActionPerformed
         String name = jTextFieldName.getText();
         String surname = jTextFieldSurname.getText();
+        String nationality = "";
         if(jRadioButtonTC.isSelected()){
-            String nationality = "T.C.";
+            nationality = "T.C.";
         }
         if(jRadioButtonOther.isSelected()){
-            String nationality = "Other";
+            nationality = "Other";
         }
         String idNumber = jTextFieldIDNumber.getText();
         String phone = jTextFieldPhone.getText();
@@ -392,45 +394,55 @@ jTextFieldEmail.setBorder(BorderFactory.createCompoundBorder(border,
         String birthdayDateConst = jTextFieldBirthdayDate.getText();
         String licenceDateConst = jTextFieldDriversLicenceDate.getText();
         
-        Person person = new Person(name, surname, email, idNumber, birthdayDateConst, licenceDateConst, phone, email);
-        
-        String[] birthdayDate = jTextFieldBirthdayDate.getText().split("/");       
-        if(birthdayDate.length != 3){
-            //hata kodu
-        }
-        
-        int birthdayDay = Integer.parseInt(birthdayDate[0]);
-        int birthdayMonth = Integer.parseInt(birthdayDate[1]);
-        int birthdayYear = Integer.parseInt(birthdayDate[2]);
-        
-        String[] licenseDate = jTextFieldBirthdayDate.getText().split("/");
-        if(licenseDate.length != 3){
-            //hata kodu
-        }
-        int licenceDay = Integer.parseInt(licenseDate[0]);
-        int licenceMonth = Integer.parseInt(licenseDate[1]);
-        int licenceYear = Integer.parseInt(licenseDate[2]);
-        
         GregorianCalendar currentDate = new GregorianCalendar();
         
-        if((currentDate.get(Calendar.YEAR) - licenceYear < 2) && (currentDate.get(Calendar.YEAR) - birthdayYear < 21)){
-            //İKİ HATAYI AYNI ANDA EKRANA YAZ
-        } else if(currentDate.get(Calendar.YEAR) - birthdayYear < 21){
-            //KULLANICI ARABA KİRALAMAK İÇİN YETERİNCE BÜYÜK DEĞİL HATASI
-        } else if((currentDate.get(Calendar.YEAR) - licenceYear < 2)){
-            //KULLANICI EHLİYETİ 2 SENEDEN AZ HATASI VERİLECEK
+        Person person = new Person(name, surname, email, idNumber, birthdayDateConst, licenceDateConst, phone, email);
+        
+        String[] birthdayDate = jTextFieldBirthdayDate.getText().split("/");
+        String[] licenseDate = jTextFieldDriversLicenceDate.getText().split("/");
+        
+        if(birthdayDate.length != 3){
+            JOptionPane.showMessageDialog(this, "Please enter the correct birthday date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
+        } else if(licenseDate.length != 3){
+            JOptionPane.showMessageDialog(this, "Please enter the correct licence date format. (DD/MM/YYYY)", "WARNING", JOptionPane.WARNING_MESSAGE);
         } else {
-            if(SystemClass.addPerson(person, licenceYear, licenceMonth, licenceDay, birthdayYear, birthdayMonth, birthdayDay)){
-                //KULLANICI SİSTEME EKLENDİ BİLGİSİ VERİLECEK
-                
+            int birthdayDay = Integer.parseInt(birthdayDate[0]);
+            int birthdayMonth = Integer.parseInt(birthdayDate[1]);
+            int birthdayYear = Integer.parseInt(birthdayDate[2]);
+            
+            int licenceDay = Integer.parseInt(licenseDate[0]);
+            int licenceMonth = Integer.parseInt(licenseDate[1]);
+            int licenceYear = Integer.parseInt(licenseDate[2]);
+            
+            if(birthdayYear < 1000){
+                JOptionPane.showMessageDialog(this, "Please check the customer's birthday year.", "WARNING", JOptionPane.WARNING_MESSAGE);
+            } else if (licenceYear < 1000){
+                JOptionPane.showMessageDialog(this, "Please check the customer's licence year.", "WARNING", JOptionPane.WARNING_MESSAGE);
             } else {
-                // KULLANICI SİSTEME EKLENEMEDİ
+                if(!name.equals("") && !surname.equals("") && !nationality.equals("") && !idNumber.equals("") && !phone.equals("") && !email.equals("")){
+                    if((currentDate.get(Calendar.YEAR) - licenceYear < 2) && (currentDate.get(Calendar.YEAR) - birthdayYear < 21)){
+                        JOptionPane.showMessageDialog(this, "The age of the customer can not be less than 21 and the driver's license age can not be less than 2.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                    } else if(currentDate.get(Calendar.YEAR) - birthdayYear < 21){
+                        JOptionPane.showMessageDialog(this, "The age of the customer can not be less than 21.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                    } else if((currentDate.get(Calendar.YEAR) - licenceYear < 2)){
+                        JOptionPane.showMessageDialog(this, "The driver's license age of the customer can not be less than 2.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        if(SystemClass.addPerson(person, licenceYear, licenceMonth, licenceDay, birthdayYear, birthdayMonth, birthdayDay)){
+                            JOptionPane.showMessageDialog(this, "Customer is successfully added.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+                            DisplayCustomer displayCustomer = new DisplayCustomer();
+                            displayCustomer.setVisible(true);
+                            this.dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(this, "The customer could not be added.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please fill in all fields.", "WARNING", JOptionPane.WARNING_MESSAGE);
+                }
             }
+            
+            
         }
-
-        DisplayCustomer displayCustomer = new DisplayCustomer();
-        displayCustomer.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButtonAddCustomerActionPerformed
 
     private void jButtonCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarsActionPerformed

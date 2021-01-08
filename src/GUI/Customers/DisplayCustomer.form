@@ -219,7 +219,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Microsoft JhengHei" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Customers"/>
+            <Property name="text" type="java.lang.String" value="Please update the page."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddNewCustomer">
@@ -285,12 +285,6 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                              <Component id="jButtonEdit" min="-2" pref="164" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonSave" min="-2" pref="164" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelNationality" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldName" min="-2" pref="190" max="-2" attributes="0"/>
@@ -312,6 +306,15 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="116" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonEdit1" min="-2" pref="164" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonEdit" min="-2" pref="164" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonSave" min="-2" pref="164" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -367,6 +370,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonEdit" alignment="3" max="32767" attributes="0"/>
                           <Component id="jButtonSave" alignment="3" pref="31" max="32767" attributes="0"/>
+                          <Component id="jButtonEdit1" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
@@ -585,6 +589,23 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButtonSave.setEnabled(false);"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonEdit1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Microsoft JhengHei" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="DELETE CUSTOMER"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEdit1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
