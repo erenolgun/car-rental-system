@@ -469,6 +469,7 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
                             SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
                             SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
                             SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+
                             if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
                                     //new frame
                                     RentingExtras rentingExtras = new RentingExtras();
@@ -480,11 +481,13 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
                                 SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
                                 SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
                                 SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
-                                SystemClass.cars.get(carPosition).setPriceNew(SystemClass.cars.get(carPosition).discountedPrice());
-                                //new frame
-                                RentingExtras rentingExtras = new RentingExtras();
-                                rentingExtras.setVisible(true);
-                                this.dispose();
+ 
+                                if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
+                                    //new frame
+                                    RentingExtras rentingExtras = new RentingExtras();
+                                    rentingExtras.setVisible(true);
+                                    this.dispose();
+                                }
                             } else {
                                 JOptionPane.showMessageDialog(this, "The car is not available on these dates.", "ERROR", JOptionPane.ERROR_MESSAGE);
                             }
@@ -548,37 +551,7 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RentingInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RentingInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RentingInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RentingInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RentingInformation().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;

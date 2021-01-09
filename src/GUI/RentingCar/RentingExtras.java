@@ -34,10 +34,6 @@ public class RentingExtras extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonRentCar = new javax.swing.JButton();
-        jButtonCancel = new javax.swing.JButton();
-        jButtonCustomers = new javax.swing.JButton();
-        jButtonCars = new javax.swing.JButton();
         jPanelImportant = new javax.swing.JPanel();
         jLabelImportant = new javax.swing.JLabel();
         jLabelRentCar = new javax.swing.JLabel();
@@ -75,47 +71,6 @@ public class RentingExtras extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jButtonRentCar.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonRentCar.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButtonRentCar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRentCar.setText("Rent a Car");
-        jButtonRentCar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        jButtonRentCar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRentCarActionPerformed(evt);
-            }
-        });
-
-        jButtonCancel.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonCancel.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButtonCancel.setText("Cancel the Reservation");
-        jButtonCancel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelActionPerformed(evt);
-            }
-        });
-
-        jButtonCustomers.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonCustomers.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButtonCustomers.setText("Customers");
-        jButtonCustomers.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jButtonCustomers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCustomersActionPerformed(evt);
-            }
-        });
-
-        jButtonCars.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonCars.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
-        jButtonCars.setText("Cars");
-        jButtonCars.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jButtonCars.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCarsActionPerformed(evt);
-            }
-        });
 
         jPanelImportant.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -421,6 +376,18 @@ public class RentingExtras extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jCheckBoxChildSeat.setEnabled(false);
+        jCheckBoxNavigation.setEnabled(false);
+        jCheckBoxSnowTire.setEnabled(false);
+        jCheckBoxHGS.setEnabled(false);
+        jCheckBoxScooter.setEnabled(false);
+        jCheckBoxTire.setEnabled(false);
+        jCheckBoxWindow.setEnabled(false);
+        jCheckBoxHeadlight.setEnabled(false);
+        jCheckBoxComprehensive.setEnabled(false);
+        jTextFieldTotalPrice.setEditable(false);
+        jButtonRent.setEnabled(false);
+
         jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
         jButtonUpdate.setFont(new java.awt.Font("Microsoft JhengHei", 0, 11)); // NOI18N
         jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
@@ -445,40 +412,24 @@ public class RentingExtras extends javax.swing.JFrame {
                         .addComponent(jPanelExtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelRentCar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButtonRentCar)
-                                .addGap(29, 29, 29)
-                                .addComponent(jButtonCancel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonCustomers)
-                                .addGap(30, 30, 30)
-                                .addComponent(jButtonCars)))))
+                        .addComponent(jLabelRentCar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanelImportant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCars)
-                    .addComponent(jButtonCustomers)
-                    .addComponent(jButtonCancel)
-                    .addComponent(jButtonRentCar))
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelRentCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelExtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -784,30 +735,6 @@ public class RentingExtras extends javax.swing.JFrame {
         jTextFieldTotalPrice.setText(String.valueOf((SystemClass.rentedCar.get(0).additionalPrice(price, jCheckBoxChildSeat.isSelected(), jCheckBoxNavigation.isSelected(), jCheckBoxSnowTire.isSelected(), jCheckBoxHGS.isSelected(), jCheckBoxScooter.isSelected(), jCheckBoxTire.isSelected(), jCheckBoxWindow.isSelected(), jCheckBoxHeadlight.isSelected(), jCheckBoxComprehensive.isSelected()))));  
     }//GEN-LAST:event_jCheckBoxHeadlightActionPerformed
 
-    private void jButtonRentCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRentCarActionPerformed
-        RentingInformation RentingInformation = new RentingInformation();
-        RentingInformation.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonRentCarActionPerformed
-
-    private void jButtonCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCustomersActionPerformed
-        DisplayCustomer displayCustomer = new DisplayCustomer();
-        displayCustomer.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonCustomersActionPerformed
-
-    private void jButtonCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarsActionPerformed
-        DisplayCar displayCar = new DisplayCar();
-        displayCar.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonCarsActionPerformed
-
-    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        Cancel cancel = new Cancel();
-        cancel.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonCancelActionPerformed
-
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
 
         jTextAreaInformation.setText(SystemClass.rentedCar.get(0).toString() + SystemClass.rentedCustomer.get(0).toString());
@@ -815,8 +742,19 @@ public class RentingExtras extends javax.swing.JFrame {
         double discountedPrice = SystemClass.rentedCar.get(0).discountedPrice();
         
         jTextFieldTotalPrice.setText(String.valueOf(Math.round(discountedPrice)));
-
-        //jTextFieldTotalPrice.setText(String.valueOf(formattedPrice.format(discountedPrice)));
+        
+        jCheckBoxChildSeat.setEnabled(true);
+        jCheckBoxComprehensive.setEnabled(true);
+        jCheckBoxHGS.setEnabled(true);
+        jCheckBoxHeadlight.setEnabled(true);
+        jCheckBoxNavigation.setEnabled(true);
+        jCheckBoxScooter.setEnabled(true);
+        jCheckBoxSnowTire.setEnabled(true);
+        jCheckBoxTire.setEnabled(true);
+        jCheckBoxWindow.setEnabled(true);
+        
+        jButtonRent.setEnabled(true);
+        jButtonUpdate.setVisible(false);
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRentActionPerformed
@@ -825,6 +763,7 @@ public class RentingExtras extends javax.swing.JFrame {
         for (Person customer : SystemClass.customers) {
             if(SystemClass.rentedCustomer.get(0).equals(customer)){
                 customer.rentedCars.get(0).setPriceNew(totalPrice);
+                customer.rentedCars.get(0).rentedPrice.add(SystemClass.rentedCustomer.get(0).getName() + "/" + customer.rentedCars.get(0).getPriceNew());
             }
         }
         
@@ -832,7 +771,6 @@ public class RentingExtras extends javax.swing.JFrame {
         SystemClass.rentedCustomer.clear();
         
 
-        
         RentingInformation RentingInformation = new RentingInformation();
         RentingInformation.setVisible(true);
         this.dispose();
@@ -841,44 +779,10 @@ public class RentingExtras extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RentingExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RentingExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RentingExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RentingExtras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RentingExtras().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancel;
-    private javax.swing.JButton jButtonCars;
-    private javax.swing.JButton jButtonCustomers;
     private javax.swing.JButton jButtonRent;
-    private javax.swing.JButton jButtonRentCar;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JCheckBox jCheckBoxChildSeat;
     private javax.swing.JCheckBox jCheckBoxComprehensive;

@@ -21,23 +21,8 @@ public class SystemClass {
     public static ArrayList<Car> rentedCar = new ArrayList<>();
     public static ArrayList<Person> rentedCustomer = new ArrayList<>();
     public static int id = 7;
-    
-    
-    
-    // boolean ya da void kontrolünü yap 
-    /*public static boolean addPerson(Person p) {
-        //Customer c ve tarihler gui tarafından eklenip adderson metoduna aktarılacak.        
-        GregorianCalendar licenceDate = new GregorianCalendar(licenceYear, licenceMonth, licenceDay);
-        GregorianCalendar birthdayDate = new GregorianCalendar(birthdayYear, birthdayMonth, birthdayDay);
-        GregorianCalendar currentDate = new GregorianCalendar();
-        
-        boolean isAdded = false;
-        isAdded = customers.add(p);
-        return isAdded;
-    }*/
-    
-    public static boolean addPerson(Person p, int licenceYear, int licenceMonth, int licenceDay, int birthdayYear, int birthdayMonth, int birthdayDay) {
-        //Customer c ve tarihler gui tarafından eklenip adderson metoduna aktarılacak.        
+
+    public static boolean addPerson(Person p, int licenceYear, int licenceMonth, int licenceDay, int birthdayYear, int birthdayMonth, int birthdayDay) {   
         GregorianCalendar licenceDate = new GregorianCalendar(licenceYear, licenceMonth, licenceDay);
         GregorianCalendar birthdayDate = new GregorianCalendar(birthdayYear, birthdayMonth, birthdayDay);
         GregorianCalendar currentDate = new GregorianCalendar();
@@ -143,25 +128,11 @@ public class SystemClass {
         
         customers.get(position).rentedCars.get(0).rentedDates.clear();
         customers.get(position).rentedCars.get(0).priceNew = customers.get(position).rentedCars.get(0).price;
-        //String.valueOf(customers.get(position).rentedCars.get(0).discountedPrice()).
         customers.get(position).rentedCars.clear();
         
         return true;
     }
-    
-    /*public static boolean isAvailable(GregorianCalendar pickupDate, int carPosition) {
-        boolean isAvailable = false;
-        
-        int isAvailableYear = pickupDate.get(Calendar.YEAR) -  SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.YEAR);
-        int isAvailableMonth = pickupDate.get(Calendar.MONTH) -  SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.MONTH);
-        int isAvailableDay = pickupDate.get(Calendar.DAY_OF_MONTH) -  SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.DAY_OF_MONTH);
-    
-        if( isAvailableDay >= 0 && isAvailableMonth >= 0 && isAvailableYear >= 0){
-            isAvailable = true;
-        }
-        return isAvailable;
-    }*/
-    
+
     public static boolean isAvailable(GregorianCalendar pickupDate, int carPosition) {
         boolean isAvailable = false;
         
@@ -169,35 +140,12 @@ public class SystemClass {
         int isAvailableMonth = pickupDate.get(Calendar.MONTH) -  SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.MONTH);
         int isAvailableDay = pickupDate.get(Calendar.DAY_OF_MONTH) -  SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.DAY_OF_MONTH);
         
-        
-        /*if(pickupDate.get(Calendar.YEAR) > SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.YEAR)){
-            isAvailable = true;
-            if(pickupDate.get(Calendar.YEAR) == SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.YEAR)){
-                if(pickupDate.get(Calendar.MONTH) > SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.MONTH)){
-                isAvailable = true;
-                }else if(pickupDate.get(Calendar.MONTH) == SystemClass.cars.get(carPosition).rentedDates.get(1).get(Calendar.MONTH)){
-                    if(isAvailableDay >= 0){
-                        isAvailable = true;
-                    }
-                }
-            }            
-        }*/
-        
+
         int value = pickupDate.compareTo(SystemClass.cars.get(carPosition).rentedDates.get(1));
         
         if(value >= 0){
             isAvailable = true;
         }
-        
-        
-        /*if( isAvailableDay >= 0 && isAvailableMonth >= 0 && isAvailableYear >= 0){
-            isAvailable = true;
-        }/*
-        
-        /*if(pickupDate.compareTo(SystemClass.cars.get(carPosition).rentedDates.get(1)) > 0 ){
-            isAvailable = true;
-        }
-        System.out.println(pickupDate.compareTo(SystemClass.cars.get(carPosition).rentedDates.get(1)));*/
         
         return isAvailable;
     }

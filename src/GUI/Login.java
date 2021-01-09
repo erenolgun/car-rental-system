@@ -154,7 +154,7 @@ jPanelLoginLayout.setHorizontalGroup(
         String username = jTextFieldUsername.getText();
         String password = jPasswordField1.getText();
         
-        /*if(username.equals("admin") && password.equals("admin")){
+        if(username.equals("admin") && password.equals("admin")){
             RentingInformation RentingInformation = new RentingInformation();
             RentingInformation.setVisible(true);
             this.dispose();
@@ -164,10 +164,7 @@ jPanelLoginLayout.setHorizontalGroup(
             JOptionPane.showMessageDialog(this, "Please enter a password.", "WARNING", JOptionPane.WARNING_MESSAGE); 
         } else {
             JOptionPane.showMessageDialog(this, "Username or password is not correct.", "ERROR", JOptionPane.ERROR_MESSAGE); 
-        }*/
-        RentingInformation RentingInformation = new RentingInformation();
-            RentingInformation.setVisible(true);
-            this.dispose();
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
@@ -204,10 +201,14 @@ jPanelLoginLayout.setHorizontalGroup(
                 Login.setVisible(true);
                 
                 Person erenOlgun = new Person("Eren", "Olgun", "T.C.", "25474284635", "05/07/1995", "24/03/2017", "5300482634", "erenolgun@hotmail.com");
-                Person kaganBildirici = new Person("Kağan", "Bildirici", "T.C", "16975325846", "03/12/1998", "16/07/2016", "5346524586", "kaganbildirici@gmail.com");
+                Person kaganBildirici = new Person("Kağan", "Bildirici", "T.C", "36975325846", "03/12/1998", "16/07/2016", "5346524586", "kaganbildirici@gmail.com");
+                Person bukreGokdogan = new Person("Bükre", "Gökdoğan", "T.C.", "14865923547", "19/07/2000", "04/12/2018", "5456317589", "bukregokdogan@yahoo.com");
+                Person yarenCetinkaya = new Person("Yaren", "Çetinkaya", "T.C.", "15974632841", "13/09/1999", "08/03/2019", "5056347852", "adacetinkaya@outlook.com");
                 
                 SystemClass.customers.add(erenOlgun);
                 SystemClass.customers.add(kaganBildirici);
+                SystemClass.customers.add(bukreGokdogan);
+                SystemClass.customers.add(yarenCetinkaya);
                 
                 EconomicCar renaultSymbol = new EconomicCar(1, "Renault", "Symbol", "Gasoline", "Manuel", 2017, 137);
                 EconomicCar hyundaiI20 = new EconomicCar(2, "Hyundai", "i20", "Diesel", "Automatic", 2018, 140);

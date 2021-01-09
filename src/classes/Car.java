@@ -24,6 +24,7 @@ public abstract class Car implements Price {
     protected double price;
     protected double priceNew;
     public ArrayList<GregorianCalendar> rentedDates = new ArrayList<>();
+    public ArrayList<String> rentedPrice = new ArrayList<>();
     private boolean childSeat;
     private boolean navigationSystem;
     private boolean snowTire;
@@ -122,9 +123,10 @@ public abstract class Car implements Price {
     @Override
     public String toString() {
         String output = "";
-        for (GregorianCalendar rentedDate : rentedDates) {
-            output += "\n" + String.valueOf(rentedDate.get(Calendar.DAY_OF_MONTH) + "/" + String.valueOf(rentedDate.get(Calendar.MONTH) + 1) + "/") + String.valueOf(rentedDate.get(Calendar.YEAR));
-        }
+
+        output += "\n" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.MONTH) + 1) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 2).get(Calendar.YEAR));
+        output += "\n" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.MONTH) + 1) + "/" + String.valueOf(rentedDates.get(rentedDates.size() - 1).get(Calendar.YEAR));
+        
         return "CAR'S INFORMATION" + "\nCar ID=" + carID + "\nCar Type=" + carType + "\nBrand=" + brand + "\nModel=" + model + "\nFuel Type=" + fuelType + "\nGear Type=" + gearType + "\nModel Year=" + modelYear + "\nPrice=" + price + output;
     }
 
