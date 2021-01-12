@@ -8,7 +8,6 @@ package GUI.Cars;
 import GUI.Cancel.Cancel;
 import GUI.Customers.DisplayCustomer;
 import GUI.RentingCar.RentingInformation;
-import classes.Car;
 import classes.ComfortCar;
 import classes.EconomicCar;
 import classes.LuxuryCar;

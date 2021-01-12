@@ -5,11 +5,9 @@
  */
 package GUI.RentingCar;
 
-import GUI.Cancel.Cancel;
-import GUI.Cars.DisplayCar;
-import GUI.Customers.DisplayCustomer;
 import classes.Person;
 import classes.SystemClass;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -770,6 +768,7 @@ public class RentingExtras extends javax.swing.JFrame {
         SystemClass.rentedCar.clear();
         SystemClass.rentedCustomer.clear();
         
+        JOptionPane.showMessageDialog(this, "The car is successfully rented.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
 
         RentingInformation RentingInformation = new RentingInformation();
         RentingInformation.setVisible(true);

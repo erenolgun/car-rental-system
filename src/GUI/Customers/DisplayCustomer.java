@@ -11,12 +11,9 @@ import GUI.RentingCar.RentingInformation;
 import classes.Person;
 import classes.SystemClass;
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
@@ -72,7 +69,7 @@ public class DisplayCustomer extends javax.swing.JFrame {
         jTextFieldEmail = new javax.swing.JTextField();
         jButtonEdit = new javax.swing.JButton();
         jButtonSave = new javax.swing.JButton();
-        jButtonEdit1 = new javax.swing.JButton();
+        jButtonDelete = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -236,13 +233,13 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         }
     });
 
-    jButtonEdit1.setBackground(new java.awt.Color(0, 0, 0));
-    jButtonEdit1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
-    jButtonEdit1.setForeground(new java.awt.Color(255, 255, 255));
-    jButtonEdit1.setText("DELETE CUSTOMER");
-    jButtonEdit1.addActionListener(new java.awt.event.ActionListener() {
+    jButtonDelete.setBackground(new java.awt.Color(0, 0, 0));
+    jButtonDelete.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
+    jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
+    jButtonDelete.setText("DELETE CUSTOMER");
+    jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButtonEdit1ActionPerformed(evt);
+            jButtonDeleteActionPerformed(evt);
         }
     });
 
@@ -291,7 +288,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             .addContainerGap(116, Short.MAX_VALUE))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCustomersLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButtonEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addComponent(jButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
@@ -341,7 +338,7 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             .addGroup(jPanelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jButtonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSave, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                .addComponent(jButtonEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(27, 27, 27))
     );
 
@@ -547,6 +544,8 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
                         jTextFieldPhone.setEnabled(false);
                         jTextFieldEmail.setEnabled(false);
                         jButtonSave.setEnabled(false);
+                        
+                        JOptionPane.showMessageDialog(this, "Customer information updated successfully.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Please fill in all fields.", "WARNING", JOptionPane.WARNING_MESSAGE);
@@ -561,20 +560,28 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
         this.dispose();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
-    private void jButtonEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdit1ActionPerformed
-        int position = SystemClass.searchPerson(jComboBoxID);
-        SystemClass.removePerson(SystemClass.customers.get(position));
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        int position = SystemClass.searchPerson(jComboBoxID);        
         
-        jComboBoxID.setSelectedIndex(-1);
-        jTextFieldName.setText("");
-        jTextFieldSurname.setText("");
-        jTextFieldNationality.setText("");
-        jTextFieldIDNumber.setText("");
-        jTextFieldBirthdayDate.setText("");
-        jTextFieldDriversLicenceDate.setText("");
-        jTextFieldPhone.setText("");
-        jTextFieldEmail.setText("");
-    }//GEN-LAST:event_jButtonEdit1ActionPerformed
+        if(SystemClass.removePerson(SystemClass.customers.get(position))){
+            jComboBoxID.setSelectedIndex(-1);
+            jTextFieldName.setText("");
+            jTextFieldSurname.setText("");
+            jTextFieldNationality.setText("");
+            jTextFieldIDNumber.setText("");
+            jTextFieldBirthdayDate.setText("");
+            jTextFieldDriversLicenceDate.setText("");
+            jTextFieldPhone.setText("");
+            jTextFieldEmail.setText("");
+            jLabelCustomers.setText("Please update the page.");
+            
+            JOptionPane.showMessageDialog(this, "The customer was successfully deleted.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "The customer could not be deleted.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -586,8 +593,8 @@ jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonCars;
     private javax.swing.JButton jButtonCustomers;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonEdit;
-    private javax.swing.JButton jButtonEdit1;
     private javax.swing.JButton jButtonRentCar;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonUpdate;

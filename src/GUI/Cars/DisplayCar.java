@@ -9,9 +9,6 @@ import GUI.Cancel.Cancel;
 import GUI.Customers.DisplayCustomer;
 import GUI.RentingCar.RentingInformation;
 import classes.Car;
-import classes.ComfortCar;
-import classes.EconomicCar;
-import classes.LuxuryCar;
 import classes.SystemClass;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -525,7 +522,7 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
                     jTextFieldPrice.setEnabled(false);
                     jButtonSave.setEnabled(false);
                     
-                    JOptionPane.showMessageDialog(this, "Car information is updated.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE); 
+                    JOptionPane.showMessageDialog(this, "Car information updated successfully.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE); 
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Please fill in all fields.", "WARNING", JOptionPane.WARNING_MESSAGE); 
@@ -541,17 +538,26 @@ jTextFieldPrice.setBorder(BorderFactory.createCompoundBorder(border,
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         int position = SystemClass.searchCarByBrand(jComboBoxSearch);
-        SystemClass.removeCar(SystemClass.cars.get(position));
+         
+        if(SystemClass.removeCar(SystemClass.cars.get(position))){
+            jComboBoxSearch.setSelectedItem(null);
+            jTextFieldCarID.setText("");
+            jTextFieldBrand.setText("");
+            jTextFieldModel.setText("");
+            jTextFieldFuelType.setText("");
+            jTextFieldGearType.setText("");
+            jComboBoxCarType.setSelectedIndex(-1);
+            jTextFieldModelYear.setText("");
+            jTextFieldPrice.setText("");
+            jLabelCars.setText("Please update the page.");
+            
+            JOptionPane.showMessageDialog(this, "The car was successfully deleted.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE); 
+        } else {
+            JOptionPane.showMessageDialog(this, "The car could not be deleted.", "ERROR", JOptionPane.ERROR_MESSAGE); 
+        }
         
-        jComboBoxSearch.setSelectedItem(null);
-        jTextFieldCarID.setText("");
-        jTextFieldBrand.setText("");
-        jTextFieldModel.setText("");
-        jTextFieldFuelType.setText("");
-        jTextFieldGearType.setText("");
-        jComboBoxCarType.setSelectedIndex(-1);
-        jTextFieldModelYear.setText("");
-        jTextFieldPrice.setText("");
+        
+        
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     /**

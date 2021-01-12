@@ -17,7 +17,6 @@ import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
-import sun.util.BuddhistCalendar;
 
 
 /**
@@ -456,44 +455,84 @@ jTextFieldReturnDate.setBorder(BorderFactory.createCompoundBorder(border,
                     JOptionPane.showMessageDialog(this, "Please check the customer's licence year.", "WARNING", JOptionPane.WARNING_MESSAGE);
                 } 
 
-                GregorianCalendar pickupDate = SystemClass.setCalendar(jTextFieldPickupDate.getText());
-                GregorianCalendar returnDate = SystemClass.setCalendar(jTextFieldReturnDate.getText());
+                
+                GregorianCalendar pickupDate = null;
+                GregorianCalendar returnDate = null;
+                boolean anyPickupDate = false;
+                boolean anyReturnDate = false;
+                int pickupDateNumber = 0;
+                int returnDateNumber = 0;
+                
+                for (String date : checkPickupDate) {
+                    if(SystemClass.isNumeric(date)){
+                        pickupDateNumber++;
+                    }
+                    if(pickupDateNumber == 3){
+                        anyPickupDate = true;
+                    }
+                }
+                
+                for (String date : checkReturnDate) {
+                    if(SystemClass.isNumeric(date)){
+                        returnDateNumber++;
+                    }
+                    if(returnDateNumber == 3){
+                        anyReturnDate = true;
+                    }
+                }
+                
+                if(anyPickupDate)
+                    pickupDate = SystemClass.setCalendar(jTextFieldPickupDate.getText());
+                
+                if(anyReturnDate)
+                    returnDate = SystemClass.setCalendar(jTextFieldReturnDate.getText());
+                
+                
                 GregorianCalendar currentDate = new GregorianCalendar();
-
+                GregorianCalendar currentDateCompare = SystemClass.setCalendar(currentDate.get(Calendar.DAY_OF_MONTH)+"/"+(currentDate.get(Calendar.MONTH) + 1)+"/"+currentDate.get(Calendar.YEAR));
+                
                 int customerPosition = SystemClass.searchPerson(jComboBoxCustomer);
                 int carPosition = SystemClass.searchCarByID(jComboBoxCar);
 
                 if(SystemClass.customers.get(customerPosition).rentedCars.isEmpty()){
-                    if(pickupDate.compareTo(currentDate) >= 0){
-                        if(SystemClass.cars.get(carPosition).rentedDates.isEmpty()){
-                            SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
-                            SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
-                            SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+                    if(anyPickupDate && anyReturnDate){
+                        if(returnDate.compareTo(pickupDate) >= 0){
+                            if(pickupDate.compareTo(currentDateCompare) >= 0){
+                                if(SystemClass.cars.get(carPosition).rentedDates.isEmpty()){
+                                    SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
+                                    SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
+                                    SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
 
-                            if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
-                                    //new frame
-                                    RentingExtras rentingExtras = new RentingExtras();
-                                    rentingExtras.setVisible(true);
-                                    this.dispose();
-                            }
-                        } else {
-                            if(SystemClass.isAvailable(pickupDate, carPosition)){
-                                SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
-                                SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
-                                SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
- 
-                                if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
-                                    //new frame
-                                    RentingExtras rentingExtras = new RentingExtras();
-                                    rentingExtras.setVisible(true);
-                                    this.dispose();
+                                    if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
+                                            //new frame
+                                            RentingExtras rentingExtras = new RentingExtras();
+                                            rentingExtras.setVisible(true);
+                                            this.dispose();
+                                    }
+                                } else {
+                                    if(SystemClass.isAvailable(pickupDate, carPosition)){
+                                        SystemClass.customers.get(customerPosition).rentedCars.add(SystemClass.cars.get(carPosition));
+                                        SystemClass.cars.get(carPosition).rentedDates.add(pickupDate);
+                                        SystemClass.cars.get(carPosition).rentedDates.add(returnDate);
+
+                                        if(SystemClass.addRentedCar(SystemClass.cars.get(carPosition)) && SystemClass.addRentedCustomer(SystemClass.customers.get(customerPosition))){
+                                            //new frame
+                                            RentingExtras rentingExtras = new RentingExtras();
+                                            rentingExtras.setVisible(true);
+                                            this.dispose();
+                                        }
+                                    } else {
+                                        JOptionPane.showMessageDialog(this, "The car is not available on these dates.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    }
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(this, "The car is not available on these dates.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(this, "The dates you entered are past.", "ERROR", JOptionPane.ERROR_MESSAGE);
                             }
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Return date can not be earlier than the pickup date.", "WARNING", JOptionPane.WARNING_MESSAGE); 
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "The dates you entered are past.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "The date can not contain any text.", "WARNING", JOptionPane.WARNING_MESSAGE);
                     }
                 } else {
                     // zaten arabası var

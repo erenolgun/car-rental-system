@@ -309,7 +309,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonEdit1" min="-2" pref="164" max="-2" attributes="0"/>
+                      <Component id="jButtonDelete" min="-2" pref="164" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonEdit" min="-2" pref="164" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -370,7 +370,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonEdit" alignment="3" max="32767" attributes="0"/>
                           <Component id="jButtonSave" alignment="3" pref="31" max="32767" attributes="0"/>
-                          <Component id="jButtonEdit1" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jButtonDelete" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
@@ -590,7 +590,7 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButtonSave.setEnabled(false);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonEdit1">
+            <Component class="javax.swing.JButton" name="jButtonDelete">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -604,7 +604,7 @@
                 <Property name="text" type="java.lang.String" value="DELETE CUSTOMER"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEdit1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

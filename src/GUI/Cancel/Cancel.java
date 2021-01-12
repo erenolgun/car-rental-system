@@ -12,6 +12,7 @@ import classes.Person;
 import classes.SystemClass;
 import java.awt.Color;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 /**
@@ -416,17 +417,23 @@ jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_jComboBoxSearchActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-        SystemClass.cancelReservation(jTextFieldID);
-        jTextFieldName.setText("");
-        jTextFieldSurname.setText("");
-        jTextFieldID.setText("");
-        jTextFieldBrand.setText("");
-        jTextFieldModel.setText("");
-        jTextFieldPrice.setText("");
         
-        RentingInformation RentingInformation = new RentingInformation();
-        RentingInformation.setVisible(true);
-        this.dispose();
+        if(SystemClass.cancelReservation(jTextFieldID)){
+            jTextFieldName.setText("");
+            jTextFieldSurname.setText("");
+            jTextFieldID.setText("");
+            jTextFieldBrand.setText("");
+            jTextFieldModel.setText("");
+            jTextFieldPrice.setText("");
+            
+            JOptionPane.showMessageDialog(this, "Reservation was canceled successfully.", "INFORMATION", JOptionPane.INFORMATION_MESSAGE); 
+
+            RentingInformation RentingInformation = new RentingInformation();
+            RentingInformation.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "The reservation could not be canceled.", "ERROR", JOptionPane.ERROR); 
+        }
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**

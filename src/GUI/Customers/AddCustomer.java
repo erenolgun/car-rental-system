@@ -7,17 +7,14 @@ package GUI.Customers;
 
 import GUI.Cancel.Cancel;
 import GUI.Cars.DisplayCar;
-import GUI.Login;
 import GUI.RentingCar.RentingInformation;
 import classes.Person;
 import classes.SystemClass;
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
-import GUI.Customers.DisplayCustomer;
 import javax.swing.JOptionPane;
 
 /**
